@@ -2643,12 +2643,15 @@ function confirmLocation() {
   if (modal) modal.remove();
 
   // Save item with location code
+  // Store Drive URLs if available (for later listing), NOT truncated base64
+  // Full base64 lives in state.photos during the session for immediate use
   const item = {
     id: Date.now(),
     date: new Date().toISOString(),
     mode: state.mode,
     result: state.currentResult,
-    photos: state.photos.map(p => p.dataUrl.substring(0, 50) + '...'),
+    photosDrive: state.photos.map(p => p.driveUrl || null).filter(Boolean), // Drive URLs only
+    photosCount: state.photos.length, // how many photos were taken
     status: 'queued',
     locationCode: itemCode,
     locationId: locId,
@@ -3502,8 +3505,30 @@ async function sendToEbay() {
     if (!specifics['Brand'] && r.brand) specifics['Brand'] = r.brand;
     if (!specifics['Size'] && r.size) specifics['Size'] = r.size;
 
-    // Photos — use Drive URLs directly if available, otherwise send base64
-    const photos = (item.photos || []).filter(p => p && p.length > 10).slice(0, 8);
+    // Photos — three possible sources in priority order:
+    // 1. Live session photos (full base64) — item was just processed this session
+    // 2. Drive URLs stored when photos were backed up (item from queue, loaded from sheet)
+    // 3. Nothing — listing will go through without photos
+
+    let photos = [];
+    let directImageUrls = [];
+
+    // Check if this queue item matches the current session (same id won't match but
+    // we detect by checking if state.photos still has content from this session)
+    const sessionHasPhotos = state.photos && state.photos.length > 0 &&
+      !state.photos[0].demo;
+
+    if (sessionHasPhotos && item === state.queue[currentQueueIndex]) {
+      // Use live base64 from current session — most reliable
+      photos = state.photos
+        .filter(p => !p.demo && p.dataUrl && p.dataUrl.length > 100)
+        .slice(0, 8)
+        .map(p => p.dataUrl);
+    } else if (item.photosDrive && item.photosDrive.length > 0) {
+      // Use backed-up Drive URLs — eBay will fetch these directly
+      directImageUrls = item.photosDrive.slice(0, 8);
+    }
+    // If neither, listing goes through without photos (better than failing)
 
     const response = await fetch(state.ebayScriptUrl, {
       method: 'POST',
@@ -3516,7 +3541,8 @@ async function sendToEbay() {
         isVintage: r.is_vintage || false,
         listingType: listingType,
         specifics: specifics,
-        photos: photos,
+        photos: photos,                   // base64 array (from live session)
+        directImageUrls: directImageUrls, // public URLs (from Drive backup)
       }),
     });
 
