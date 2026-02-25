@@ -1,0 +1,3576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ava & Iva">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0f0e0b">
+<meta name="description" content="Ava & Iva Stock Intake">
+<link rel="manifest" href="manifest.json">
+<!-- Apple touch icons (inline SVG converted to data URL) -->
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj4KICA8cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjQwIiBmaWxsPSIjMGYwZTBiIi8+CiAgPHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjE2NCIgaGVpZ2h0PSIxNjQiIHJ4PSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzg5NzNhIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8dGV4dCB4PSI5MCIgeT0iNzIiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjM4IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2M4OTczYSIgbGV0dGVyLXNwYWNpbmc9IjIiPkEgJmFtcDsgSTwvdGV4dD4KICA8cGF0aCBkPSJNOTAgODggTDkwIDgwIFE5MCA3NSA5NSA3NSBRMTAwIDc1IDEwMCA4MCBRMTAwIDg1IDkwIDg4IiBzdHJva2U9IiNjODk3M2EiIHN0cm9rZS13aWR0aD0iMi41IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNNTAgMTIwIFE5MCA4OCAxMzAgMTIwIiBzdHJva2U9IiNjODk3M2EiIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjUwIiB5MT0iMTIwIiB4Mj0iNTAiIHkyPSIxMzAiIHN0cm9rZT0iI2M4OTczYSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8bGluZSB4MT0iMTMwIiB5MT0iMTIwIiB4Mj0iMTMwIiB5Mj0iMTMwIiBzdHJva2U9IiNjODk3M2EiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjUwIiB5MT0iMTMwIiB4Mj0iMTMwIiB5Mj0iMTMwIiBzdHJva2U9IiNjODk3M2EiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHRleHQgeD0iOTAiIHk9IjE1OCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjYzg5NzNhIiBsZXR0ZXItc3BhY2luZz0iMyI+QVZBICZhbXA7IElWQTwvdGV4dD4KPC9zdmc+">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxODAgMTgwIj4KICA8cmVjdCB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgcng9IjQwIiBmaWxsPSIjMGYwZTBiIi8+CiAgPHJlY3QgeD0iOCIgeT0iOCIgd2lkdGg9IjE2NCIgaGVpZ2h0PSIxNjQiIHJ4PSIzNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzg5NzNhIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8dGV4dCB4PSI5MCIgeT0iNzIiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjM4IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2M4OTczYSIgbGV0dGVyLXNwYWNpbmc9IjIiPkEgJmFtcDsgSTwvdGV4dD4KICA8cGF0aCBkPSJNOTAgODggTDkwIDgwIFE5MCA3NSA5NSA3NSBRMTAwIDc1IDEwMCA4MCBRMTAwIDg1IDkwIDg4IiBzdHJva2U9IiNjODk3M2EiIHN0cm9rZS13aWR0aD0iMi41IiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNNTAgMTIwIFE5MCA4OCAxMzAgMTIwIiBzdHJva2U9IiNjODk3M2EiIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjUwIiB5MT0iMTIwIiB4Mj0iNTAiIHkyPSIxMzAiIHN0cm9rZT0iI2M4OTczYSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8bGluZSB4MT0iMTMwIiB5MT0iMTIwIiB4Mj0iMTMwIiB5Mj0iMTMwIiBzdHJva2U9IiNjODk3M2EiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGxpbmUgeDE9IjUwIiB5MT0iMTMwIiB4Mj0iMTMwIiB5Mj0iMTMwIiBzdHJva2U9IiNjODk3M2EiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPHRleHQgeD0iOTAiIHk9IjE1OCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjYzg5NzNhIiBsZXR0ZXItc3BhY2luZz0iMyI+QVZBICZhbXA7IElWQTwvdGV4dD4KPC9zdmc+">
+<title>AVA & IVA — Stock Intake</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink:     #0f0e0b;
+    --gold:    #c8973a;
+    --gold-lt: #f0d9a0;
+    --cream:   #faf7f0;
+    --warm:    #f0ebe0;
+    --mid:     #8a7e6e;
+    --border:  #d4c4a0;
+    --red:     #c0392b;
+    --green:   #2d6a4f;
+    --blue:    #1a3a5c;
+    --radius:  12px;
+    --shadow:  0 4px 24px rgba(15,14,11,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ink);
+    color: var(--cream);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    border-bottom: 2px solid var(--gold);
+    padding: 16px 20px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    color: var(--cream);
+  }
+  .logo span { color: var(--gold); }
+  .session-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--mid);
+    text-align: right;
+    line-height: 1.4;
+  }
+  .session-badge strong { color: var(--gold); display: block; font-size: 13px; }
+
+  /* ── MAIN ── */
+  main {
+    padding: 0 0 100px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ── MODE TABS ── */
+  .mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #2a2820;
+  }
+  .mode-tab {
+    padding: 14px 0;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid);
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  .mode-tab.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ── SECTION ── */
+  .section {
+    padding: 20px;
+    border-bottom: 1px solid #1e1d19;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2a2820;
+  }
+
+  /* ── PHOTO GRID ── */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .photo-slot {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    border: 1.5px dashed #3a3830;
+    background: #1a1916;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    overflow: hidden;
+    position: relative;
+  }
+  .photo-slot:active { transform: scale(0.97); }
+  .photo-slot.filled { border-color: var(--gold); border-style: solid; }
+  .photo-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 7px;
+  }
+  .photo-slot .slot-icon { font-size: 22px; }
+  .photo-slot .slot-label {
+    font-size: 9px;
+    color: var(--mid);
+    margin-top: 4px;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+  .photo-slot .remove-photo {
+    position: absolute;
+    top: 3px; right: 3px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px; height: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  #photoInput { display: none; }
+
+  .photo-tip {
+    font-size: 11px;
+    color: var(--mid);
+    font-family: 'DM Mono', monospace;
+    line-height: 1.5;
+  }
+  .photo-tip strong { color: var(--gold-lt); }
+
+  /* ── VOICE RECORDER ── */
+  .voice-area {
+    background: #1a1916;
+    border-radius: var(--radius);
+    border: 1.5px solid #2a2820;
+    padding: 16px;
+  }
+  .voice-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    letter-spacing: 0.03em;
+  }
+  .voice-btn.idle {
+    background: var(--gold);
+    color: var(--ink);
+  }
+  .voice-btn.recording {
+    background: var(--red);
+    color: white;
+    animation: pulse-record 1s ease-in-out infinite;
+  }
+  .voice-btn.done {
+    background: var(--green);
+    color: white;
+  }
+  @keyframes pulse-record {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0.4); }
+    50%       { box-shadow: 0 0 0 10px rgba(192,57,43,0); }
+  }
+  .voice-timer {
+    font-family: 'DM Mono', monospace;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--red);
+    margin: 10px 0 6px;
+    display: none;
+  }
+  .voice-timer.visible { display: block; }
+  .voice-transcript {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--mid);
+    font-style: italic;
+    line-height: 1.5;
+    min-height: 36px;
+    border-top: 1px solid #2a2820;
+    padding-top: 8px;
+    display: none;
+  }
+  .voice-transcript.visible { display: block; }
+  .waveform {
+    display: none;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 3px;
+    height: 28px;
+    margin: 8px 0 2px;
+  }
+  .waveform.visible { display: flex; }
+  .wave-bar {
+    width: 4px;
+    border-radius: 2px;
+    background: var(--red);
+    animation: wave 0.8s ease-in-out infinite;
+  }
+  .wave-bar:nth-child(1) { animation-delay: 0s;    height: 40%; }
+  .wave-bar:nth-child(2) { animation-delay: 0.1s;  height: 70%; }
+  .wave-bar:nth-child(3) { animation-delay: 0.2s;  height: 100%; }
+  .wave-bar:nth-child(4) { animation-delay: 0.15s; height: 60%; }
+  .wave-bar:nth-child(5) { animation-delay: 0.05s; height: 85%; }
+  .wave-bar:nth-child(6) { animation-delay: 0.25s; height: 45%; }
+  .wave-bar:nth-child(7) { animation-delay: 0.1s;  height: 75%; }
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.4); }
+    50%       { transform: scaleY(1);   }
+  }
+
+  .voice-tips {
+    margin-top: 12px;
+    background: #131210;
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .voice-tips-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .voice-tip-item {
+    font-size: 11px;
+    color: var(--mid);
+    line-height: 1.6;
+    display: flex;
+    gap: 6px;
+  }
+  .voice-tip-item strong { color: var(--cream); }
+
+  /* ── QUICK FIELDS ── */
+  .fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .field-group { display: flex; flex-direction: column; gap: 5px; }
+  .field-group.full { grid-column: 1 / -1; }
+  .field-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+  .field-input, .field-select, .field-textarea {
+    background: #1a1916;
+    border: 1.5px solid #2a2820;
+    border-radius: 8px;
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 10px 12px;
+    width: 100%;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .field-input:focus, .field-select:focus, .field-textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+  .field-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%238a7e6e'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 30px; }
+  .field-textarea { resize: none; height: 72px; line-height: 1.5; font-size: 13px; }
+
+  /* ── VINYL FIELDS ── */
+  #vinylPanel { display: none; }
+  #clothingPanel { display: block; }
+
+  /* ── PROCESS BUTTON ── */
+  .process-section {
+    padding: 16px 20px;
+    background: #0f0e0b;
+    border-top: 1px solid #2a2820;
+  }
+  .process-btn {
+    width: 100%;
+    padding: 18px;
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    border-radius: var(--radius);
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .process-btn:active { transform: scale(0.98); background: #b8872a; }
+  .process-btn:disabled { background: #3a3520; color: var(--mid); cursor: not-allowed; transform: none; }
+
+  .readiness {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .ready-dot {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+  }
+  .ready-dot.ok    { background: rgba(45,106,79,0.3);  color: #5dd49a; border: 1px solid #2d6a4f; }
+  .ready-dot.warn  { background: rgba(200,151,58,0.2); color: var(--gold); border: 1px solid #5a4010; }
+  .ready-dot.empty { background: rgba(50,48,40,0.5);   color: var(--mid); border: 1px solid #2a2820; }
+
+  /* ── RESULT CARD ── */
+  .result-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,8,0.92);
+    z-index: 200;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .result-overlay.visible { display: block; }
+  .result-card {
+    background: var(--ink);
+    margin: 0;
+    min-height: 100vh;
+    padding-bottom: 80px;
+  }
+  .result-header {
+    background: var(--green);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .result-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: white;
+  }
+  .result-body { padding: 16px 20px; }
+
+  .result-field { margin-bottom: 16px; }
+  .result-field-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 5px;
+  }
+  .result-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.4;
+    background: #1a1916;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border-left: 3px solid var(--gold);
+  }
+  .result-desc {
+    font-size: 12px;
+    color: #b0a898;
+    line-height: 1.7;
+    background: #1a1916;
+    padding: 10px 12px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+  }
+  .result-meta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .result-meta-item {
+    background: #1a1916;
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+  .result-meta-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 3px;
+  }
+  .result-meta-val {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cream);
+  }
+  .result-meta-val.price { color: var(--gold); font-size: 16px; }
+  .result-meta-val.alert { color: #ff6b6b; }
+
+  .alert-box {
+    background: rgba(192,57,43,0.12);
+    border: 1px solid rgba(192,57,43,0.4);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #ff9999;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .alert-box strong { color: #ff6b6b; }
+
+  .result-actions {
+    position: fixed;
+    bottom: 0;
+    left: 0; right: 0;
+    padding: 12px 20px;
+    background: #0f0e0b;
+    border-top: 1px solid #2a2820;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 210;
+  }
+  .action-btn {
+    padding: 14px;
+    border-radius: var(--radius);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .action-btn:active { transform: scale(0.97); }
+  .action-approve { background: var(--gold); color: var(--ink); }
+  .action-edit    { background: #2a2820;     color: var(--cream); }
+  .action-discard { background: transparent; border: 1.5px solid #3a3830; color: var(--mid); font-size: 12px; }
+
+  /* ── EDIT OVERLAY ── */
+  .edit-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: var(--ink);
+    z-index: 250;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .edit-overlay.visible { display: block; }
+  .edit-header {
+    background: #1a3a5c;
+    padding: 14px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid var(--gold);
+  }
+  .edit-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: white;
+  }
+  .edit-header-sub {
+    font-size: 11px;
+    color: #a0c4e8;
+    margin-top: 2px;
+    font-family: 'DM Mono', monospace;
+  }
+  .edit-body { padding: 16px 20px 120px; }
+  .edit-field { margin-bottom: 16px; }
+  .edit-field-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .edit-field-label em {
+    font-size: 8px;
+    color: var(--mid);
+    letter-spacing: 0.05em;
+    text-transform: none;
+    font-style: italic;
+  }
+  .edit-input {
+    width: 100%;
+    background: #1a1916;
+    border: 1.5px solid #3a3830;
+    border-radius: 8px;
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 10px 12px;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .edit-input:focus { outline: none; border-color: var(--gold); }
+  .edit-textarea {
+    width: 100%;
+    background: #1a1916;
+    border: 1.5px solid #3a3830;
+    border-radius: 8px;
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    padding: 10px 12px;
+    line-height: 1.6;
+    resize: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .edit-textarea:focus { outline: none; border-color: var(--gold); }
+  .edit-char-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--mid);
+    text-align: right;
+    margin-top: 3px;
+  }
+  .edit-char-count.warn { color: var(--gold); }
+  .edit-char-count.over { color: var(--red); }
+  .edit-specifics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .edit-spec-item { display: flex; flex-direction: column; gap: 3px; }
+  .edit-spec-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+  .edit-spec-input {
+    background: #1a1916;
+    border: 1px solid #2a2820;
+    border-radius: 6px;
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    padding: 6px 8px;
+    width: 100%;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .edit-spec-input:focus { outline: none; border-color: var(--gold); }
+  .edit-actions {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    padding: 12px 20px;
+    background: #0f0e0b;
+    border-top: 2px solid var(--gold);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 260;
+  }
+  .edit-back-btn {
+    padding: 14px 18px;
+    background: #2a2820;
+    color: var(--cream);
+    border: none;
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .edit-back-btn:active { transform: scale(0.97); }
+  .edit-save-btn {
+    padding: 14px;
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .edit-save-btn:active { transform: scale(0.97); background: #b8872a; }
+
+  /* ── QUEUE STRIP ── */
+  .queue-strip {
+    padding: 14px 20px;
+    background: #131210;
+    border-bottom: 1px solid #1e1d19;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .queue-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--mid);
+  }
+  .queue-count strong { color: var(--cream); font-size: 16px; margin-right: 4px; }
+  .queue-items {
+    display: flex;
+    gap: 5px;
+  }
+  .queue-thumb {
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    background: #2a2820;
+    overflow: hidden;
+    border: 1.5px solid #3a3830;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .queue-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ── LOADING ── */
+  .loading-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,8,0.95);
+    z-index: 300;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .loading-overlay.visible { display: flex; }
+  .loading-spinner {
+    width: 48px; height: 48px;
+    border: 3px solid #2a2820;
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--mid);
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 1.8;
+  }
+  .loading-text strong { color: var(--gold); display: block; font-size: 16px; margin-bottom: 4px; }
+
+  /* ── DEMO BANNER ── */
+  .demo-banner {
+    background: linear-gradient(135deg, #1a3a5c, #0f2a40);
+    border-bottom: 2px solid var(--gold);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .demo-banner-text {
+    font-size: 12px;
+    color: #a0c4e8;
+    line-height: 1.4;
+  }
+  .demo-banner-text strong { color: white; display: block; font-size: 13px; margin-bottom: 1px; }
+  .demo-picks {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .demo-pick-btn {
+    padding: 8px 12px;
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+  }
+  .demo-pick-btn:active { transform: scale(0.95); background: #b8872a; }
+  .demo-pick-btn.vinyl-btn {
+    background: transparent;
+    color: var(--gold);
+    border: 1.5px solid var(--gold);
+  }
+
+  /* ── DEMO FILL FLASH ── */
+  @keyframes field-flash {
+    0%   { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200,151,58,0.3); }
+    100% { border-color: #2a2820; box-shadow: none; }
+  }
+  .field-filled { animation: field-flash 0.8s ease forwards; }
+
+  /* ── VOICE NOTE STACK ── */
+  .voice-note-item {
+    background: #1a1916;
+    border: 1px solid #2a2820;
+    border-left: 3px solid var(--gold);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .voice-note-text {
+    flex: 1;
+    font-size: 13px;
+    color: var(--cream);
+    font-style: italic;
+    line-height: 1.5;
+    border: none;
+    background: transparent;
+    padding: 0;
+    resize: none;
+    font-family: 'DM Sans', sans-serif;
+    width: 100%;
+  }
+  .voice-note-text:focus { outline: none; }
+  .voice-note-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    color: var(--gold);
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+  .voice-note-del {
+    background: none;
+    border: none;
+    color: var(--mid);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    line-height: 1;
+    transition: color 0.15s;
+  }
+  .voice-note-del:hover { color: var(--red); }
+  .voice-add-btn {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1.5px dashed #3a3830;
+    border-radius: 8px;
+    color: var(--mid);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: all 0.2s;
+  }
+  .voice-add-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── SESSION COUNTER ── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid #1e1d19;
+  }
+  .stat-cell {
+    padding: 10px 0;
+    text-align: center;
+    border-right: 1px solid #1e1d19;
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--gold);
+    display: block;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .stat-lbl {
+    font-size: 9px;
+    color: var(--mid);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── PHOTO COUNTER BADGE ── */
+  .photo-count-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--mid);
+    margin-top: 8px;
+  }
+  .photo-count-badge .count { color: var(--gold); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<!-- Loading overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">
+    <strong>Processing Item</strong>
+    <span id="loadingStep">Analysing photos...</span>
+  </div>
+</div>
+
+<!-- Result overlay -->
+<div class="result-overlay" id="resultOverlay">
+  <div class="result-card">
+    <div class="result-header">
+      <span style="font-size:22px">✓</span>
+      <h2>Listing Generated</h2>
+    </div>
+    <div class="result-body" id="resultBody">
+    </div>
+  </div>
+  <div class="result-actions">
+    <button class="action-btn action-approve" onclick="approveItem()">✓ Add to Queue</button>
+    <button class="action-btn action-edit"    onclick="editItem()">✎ Edit First</button>
+  </div>
+</div>
+
+<!-- Edit overlay -->
+<div class="edit-overlay" id="editOverlay">
+  <div class="edit-header">
+    <h2>✎ Edit Listing</h2>
+    <div class="edit-header-sub">All fields editable — changes saved when you approve</div>
+  </div>
+  <div class="edit-body" id="editBody"></div>
+  <div class="edit-actions">
+    <button class="edit-back-btn" onclick="backToResult()">← Back</button>
+    <button class="edit-save-btn" onclick="saveEditsAndApprove()">✓ Save &amp; Add to Queue</button>
+  </div>
+</div>
+
+<!-- Header -->
+<header>
+  <div class="logo">AVA <span>&</span> IVA</div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <button onclick="promptApiKey()" id="keyBtn" style="
+      background:none;border:1.5px solid #3a3830;border-radius:8px;
+      color:var(--mid);font-family:'DM Mono',monospace;font-size:10px;
+      padding:6px 10px;cursor:pointer;letter-spacing:0.05em">
+      🔑 API KEY
+    </button>
+    <div class="session-badge">
+      <strong id="sessionDate">—</strong>
+      Intake v28
+    </div>
+  </div>
+</header>
+
+<!-- Stats bar -->
+<div class="stats-bar">
+  <div class="stat-cell">
+    <span class="stat-num" id="statToday">0</span>
+    <span class="stat-lbl">Today</span>
+  </div>
+  <div class="stat-cell">
+    <span class="stat-num" id="statQueue">0</span>
+    <span class="stat-lbl">In Queue</span>
+  </div>
+  <div class="stat-cell">
+    <span class="stat-num" id="statTotal">0</span>
+    <span class="stat-lbl">All Time</span>
+  </div>
+</div>
+
+<!-- Demo banner -->
+<div class="demo-banner" id="demoBanner">
+  <div class="demo-banner-text">
+    <strong>🧪 Demo Mode</strong>
+    No photos or mic needed — tap an item to see the full AI listing flow
+  </div>
+  <div class="demo-picks">
+    <button class="demo-pick-btn" onclick="runDemo('mugler')">👗 Mugler</button>
+    <button class="demo-pick-btn" onclick="runDemo('versace')">👗 Versace</button>
+    <button class="demo-pick-btn vinyl-btn" onclick="runDemo('vinyl')">🎵 Vinyl</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- Mode tabs -->
+  <div class="mode-tabs">
+    <button class="mode-tab active" onclick="setMode('clothing')" id="tabClothing">
+      👗 Clothing / Accessories
+    </button>
+    <button class="mode-tab" onclick="setMode('vinyl')" id="tabVinyl">
+      🎵 Vinyl
+    </button>
+  </div>
+
+  <!-- Queue strip -->
+  <div class="queue-strip" onclick="openQueue()" style="cursor:pointer">
+    <div class="queue-count"><strong id="queueNum">0</strong> items ready to list <span style="color:var(--gold);font-size:10px">— tap to view →</span></div>
+    <div class="queue-items" id="queueThumbs"></div>
+  </div>
+
+  <!-- Queue overlay -->
+  <div class="edit-overlay" id="queueOverlay">
+    <div class="edit-header">
+      <h2>📋 Queue</h2>
+      <div class="edit-header-sub">Tap any item to view full listing</div>
+    </div>
+    <div class="edit-body" id="queueBody"></div>
+    <div class="edit-actions" style="grid-template-columns:1fr 1fr;gap:8px">
+      <button class="edit-back-btn" onclick="closeQueue()">← Back to Intake</button>
+      <button class="edit-save-btn" id="printBatchBtn" onclick="printPendingLabels()"
+        style="background:#1a3a5c;border:1.5px solid var(--gold);color:var(--gold)">
+        🖨 Print Pending Labels
+      </button>
+    </div>
+  </div>
+
+  <!-- Queue item detail overlay -->
+  <div class="edit-overlay" id="queueItemOverlay">
+    <div class="edit-header" id="queueItemHeader">
+      <h2>Listing Detail</h2>
+      <div class="edit-header-sub" id="queueItemSub"></div>
+    </div>
+    <div class="edit-body" id="queueItemBody"></div>
+    <div class="edit-actions" style="grid-template-columns:auto auto auto 1fr auto;gap:8px">
+      <button class="edit-back-btn" onclick="closeQueueItem()" style="padding:14px 16px">← Queue</button>
+      <button class="edit-back-btn" onclick="copyListing()" id="copyBtn" style="padding:14px 16px;color:var(--gold);border-color:var(--gold)">📋 Copy</button>
+      <button class="edit-back-btn" onclick="sendToEbay()" id="ebayDraftBtn" style="padding:14px 16px;color:#5ba3e0;border-color:#5ba3e0">🏷 eBay</button>
+      <button class="edit-save-btn" onclick="markAsListed()" id="markListedBtn">✓ Mark as Listed</button>
+      <button class="edit-back-btn" onclick="deleteQueueItem()" style="padding:14px 16px;color:#ff6b6b;border-color:#ff6b6b" title="Delete">🗑</button>
+    </div>
+  </div>
+
+  <!-- ══ PHOTO SECTION ══ -->
+  <div class="section">
+    <div class="section-label">📷 Photos</div>
+
+    <div class="photo-grid" id="photoGrid">
+      <div class="photo-slot" id="slot0" onclick="triggerPhoto()">
+        <span class="slot-icon">📸</span>
+        <span class="slot-label">FRONT</span>
+      </div>
+      <div class="photo-slot" id="slot1" onclick="triggerPhoto()">
+        <span class="slot-icon">+</span>
+        <span class="slot-label">BACK</span>
+      </div>
+      <div class="photo-slot" id="slot2" onclick="triggerPhoto()">
+        <span class="slot-icon">+</span>
+        <span class="slot-label">LABEL</span>
+      </div>
+      <div class="photo-slot" id="slot3" onclick="triggerPhoto()">
+        <span class="slot-icon">+</span>
+        <span class="slot-label">DETAIL</span>
+      </div>
+    </div>
+
+    <input type="file" id="photoInput" accept="image/*" multiple capture="environment">
+
+    <div class="photo-count-badge">
+      <span class="count" id="photoCountNum">0</span> / 8 photos added
+      <span id="photoCountNote" style="margin-left:4px;color:#5dd49a;display:none">✓ Good</span>
+    </div>
+    <div class="photo-tip" style="margin-top:8px">
+      <strong>iPhone tip:</strong> shoot in landscape for clothing. Tap a slot to add from camera or library. Add up to 8 photos — label shot is most important for AI identification.
+    </div>
+  </div>
+
+  <!-- ══ VOICE SECTION ══ -->
+  <div class="section">
+    <div class="section-label">🎤 Voice Notes <span id="voiceNoteCount" style="color:var(--mid);font-size:11px;font-family:'DM Mono',monospace"></span></div>
+    <div class="voice-area">
+
+      <!-- Stacked notes appear here -->
+      <div id="voiceNotesList"></div>
+
+      <button class="voice-btn idle" id="voiceBtn" onclick="toggleRecording()">
+        <span id="voiceBtnIcon">⏺</span>
+        <span id="voiceBtnText">Tap to Record</span>
+      </button>
+      <button id="voiceDoneBtn" onclick="commitVoiceNotes()" style="
+        display:none;
+        width:100%;
+        margin-top:8px;
+        padding:12px;
+        background: #2d6a4f;
+        color: white;
+        border: none;
+        border-radius: var(--radius);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+      ">✓ Finished Recording</button>
+      <div class="waveform" id="waveform">
+        <div class="wave-bar"></div><div class="wave-bar"></div>
+        <div class="wave-bar"></div><div class="wave-bar"></div>
+        <div class="wave-bar"></div><div class="wave-bar"></div>
+        <div class="wave-bar"></div>
+      </div>
+      <div class="voice-timer" id="voiceTimer">0:00</div>
+      <div class="voice-transcript" id="voiceTranscript"></div>
+
+      <div class="voice-tips">
+        <div class="voice-tips-title">What to say</div>
+        <div class="voice-tip-item"><strong>Brand & item:</strong> "Jaeger wool skirt, dark forest green"</div>
+        <div class="voice-tip-item"><strong>Size:</strong> "labelled size 12, runs small"</div>
+        <div class="voice-tip-item"><strong>Condition:</strong> "excellent condition" or "small mark on lining"</div>
+        <div class="voice-tip-item"><strong>Price:</strong> "asking sixty-five pounds"</div>
+        <div class="voice-tip-item"><strong>Any detail:</strong> "fully lined, 100% wool, late 1990s"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CLOTHING FIELDS ══ -->
+  <div class="section" id="clothingPanel">
+    <div class="section-label">📋 Quick Confirm</div>
+    <div class="fields-grid">
+      <div class="field-group">
+        <label class="field-label">Category</label>
+        <select class="field-select" id="cfCategory">
+          <option value="">AI will detect</option>
+          <option>Jacket / Coat</option>
+          <option>Dress</option>
+          <option>Skirt</option>
+          <option>Suit / Set</option>
+          <option>Top / Blouse</option>
+          <option>Trousers</option>
+          <option>Bag</option>
+          <option>Shoes / Boots</option>
+          <option>Scarf</option>
+          <option>Jewellery</option>
+          <option>Hat</option>
+          <option>Knitwear</option>
+          <option>Leather Jacket</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Price (£)</label>
+        <input class="field-input" type="number" id="cfPrice" placeholder="0.00" step="0.50">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Size (UK)</label>
+        <input class="field-input" type="text" id="cfSize" placeholder="10, M, S/M...">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Condition Flag</label>
+        <select class="field-select" id="cfCondition">
+          <option value="excellent">Excellent vintage</option>
+          <option value="verygood">Very good</option>
+          <option value="good">Good — minor wear</option>
+          <option value="issue">Has noted issue</option>
+        </select>
+      </div>
+      <div class="field-group full">
+        <label class="field-label">Condition Note (if any)</label>
+        <textarea class="field-textarea" id="cfCondNote" placeholder="e.g. small mark on lining, barely visible..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ VINYL FIELDS ══ -->
+  <div class="section" id="vinylPanel">
+    <div class="section-label">🎵 Vinyl Details</div>
+    <div class="fields-grid">
+      <div class="field-group full">
+        <label class="field-label">Artist / Title (if known)</label>
+        <input class="field-input" type="text" id="vfArtist" placeholder="AI will read from label photo">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Format</label>
+        <select class="field-select" id="vfFormat">
+          <option>LP (12")</option>
+          <option>7" Single</option>
+          <option>10"</option>
+          <option>Double LP</option>
+          <option>Box Set</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Media Grade</label>
+        <select class="field-select" id="vfMedia">
+          <option>Mint (M)</option>
+          <option>Near Mint (NM)</option>
+          <option selected>Very Good Plus (VG+)</option>
+          <option>Very Good (VG)</option>
+          <option>Good Plus (G+)</option>
+          <option>Good (G)</option>
+          <option>Fair (F)</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Sleeve Grade</label>
+        <select class="field-select" id="vfSleeve">
+          <option>Mint (M)</option>
+          <option>Near Mint (NM)</option>
+          <option selected>Very Good Plus (VG+)</option>
+          <option>Very Good (VG)</option>
+          <option>Good Plus (G+)</option>
+          <option>Good (G)</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Price (£)</label>
+        <input class="field-input" type="number" id="vfPrice" placeholder="Discogs data">
+      </div>
+      <div class="field-group">
+        <label class="field-label">List on</label>
+        <select class="field-select" id="vfPlatform">
+          <option>Both eBay + Discogs</option>
+          <option>eBay only</option>
+          <option>Discogs only</option>
+        </select>
+      </div>
+      <div class="field-group full">
+        <label class="field-label">Condition Notes</label>
+        <textarea class="field-textarea" id="vfNotes" placeholder="e.g. Side 1 has light surface noise, plays VG+. Sleeve has slight ring wear..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PROCESS BUTTON ══ -->
+  <div class="process-section">
+    <div class="readiness" id="readiness">
+      <span class="ready-dot empty" id="rdPhotos">📷 No photos</span>
+      <span class="ready-dot empty" id="rdVoice">🎤 No voice</span>
+      <span class="ready-dot warn"  id="rdPrice">£ No price</span>
+    </div>
+    <button class="process-btn" id="processBtn" onclick="processItem()">
+      <span>⚡</span> Generate Listing
+    </button>
+  </div>
+
+</main>
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────────
+const state = {
+  mode: 'clothing',
+  photos: [],
+  audioBlob: null,
+  transcript: '',
+  voiceNotes: [], // array of {text, id}
+  recording: false,
+  mediaRecorder: null,
+  timerInterval: null,
+  timerSeconds: 0,
+  queue: JSON.parse(localStorage.getItem('avaiva_queue') || '[]'),
+  locations: JSON.parse(localStorage.getItem('avaiva_locations') || JSON.stringify([
+    { id: 'CLR01', type: 'rail', count: 0, full: false },
+    { id: 'CLB01', type: 'box', count: 0, full: false },
+  ])),
+  todayCount: parseInt(localStorage.getItem('avaiva_today_' + todayKey()) || '0'),
+  totalCount: parseInt(localStorage.getItem('avaiva_total') || '0'),
+  currentResult: null,
+  ebayAppId: localStorage.getItem('avaiva_ebay_appid') || 'NickSalt-AvaIva-PRD-38c019548-b0fc1543',
+  ebayUserToken: localStorage.getItem('avaiva_ebay_token') || 'v^1.1#i^1#p^3#r^1#I^3#f^0#t^Ul4xMF8xMDozQzYwOEVDNDBGNzI5NDcxNUQ5RjkxRjkzRDNFQjNFOF8yXzEjRV4yNjA=',
+  ebayScriptUrl: 'https://script.google.com/macros/s/AKfycby6pWOMK-LpmMo-NBa4Ru5Ckigl-bs5LW76-WazkV_c8c45_Zeb6nTP51tL4F574aWJ/exec',
+  openaiKey: localStorage.getItem('avaiva_openai_key') || '',
+  speechRecognition: null,
+  interimTranscript: '',
+};
+
+function todayKey() {
+  return new Date().toISOString().split('T')[0];
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  // Register service worker for PWA offline support
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+
+  // Date
+  const now = new Date();
+  document.getElementById('sessionDate').textContent =
+    now.toLocaleDateString('en-GB', {weekday:'short', day:'numeric', month:'short'});
+
+  updateStats();
+  updateReadiness();
+  updateQueueStrip();
+
+  // Photo input
+  document.getElementById('photoInput').addEventListener('change', handlePhotoInput);
+
+  updateKeyBtn();
+  syncFromSheet(); // Load queue from Google Sheets on startup
+
+  // Ask for API key if not set
+  if (!state.apiKey) {
+    setTimeout(() => promptApiKey(), 500);
+  }
+});
+
+function promptApiKey() {
+  const current = state.apiKey ? '(key saved — paste new one to update)' : '(get from console.anthropic.com)';
+  const key = prompt(`AVA & IVA — Claude API Key\n${current}\n\nPaste your key starting with sk-ant-`);
+  if (key && key.trim().startsWith('sk-ant-')) {
+    state.apiKey = key.trim();
+    localStorage.setItem('avaiva_apikey', state.apiKey);
+    updateKeyBtn();
+    alert('✓ API key saved!');
+  } else if (key && key.trim()) {
+    alert('That doesn\'t look right — key should start with sk-ant-\n\nTry again.');
+  }
+}
+
+function updateKeyBtn() {
+  const btn = document.getElementById('keyBtn');
+  if (!btn) return;
+  if (state.apiKey) {
+    btn.textContent = '🔑 KEY ✓';
+    btn.style.color = '#5dd49a';
+    btn.style.borderColor = '#2d6a4f';
+  } else {
+    btn.textContent = '🔑 ADD KEY';
+    btn.style.color = '#ff9999';
+    btn.style.borderColor = '#c0392b';
+  }
+}
+
+function parseSheetDate(val) {
+  if (!val) return new Date().toISOString();
+  // Handle UK format dd/mm/yyyy
+  const ukMatch = String(val).match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (ukMatch) {
+    return new Date(`${ukMatch[3]}-${ukMatch[2].padStart(2,'0')}-${ukMatch[1].padStart(2,'0')}`).toISOString();
+  }
+  // Handle ISO and anything else
+  const d = new Date(val);
+  return isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
+}
+
+// ── Google Sheets Integration (via Apps Script) ────────────────────────────
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycgB0NDxKgQ9M85O8twMxykyRv-ZLDlE2n--KqA8v0rg4dEF_gJv9Ixrk7ua-bfg4_dw/exec';
+
+const SHEET_HEADERS = [
+  'ID', 'Date', 'Location Code', 'Status',
+  'Mode', 'Brand', 'Item Type', 'Colour', 'Fabric', 'Era', 'Size',
+  'eBay Title', 'Description', 'Price', 'Category',
+  'Condition', 'Is Vintage', 'Pricing Alert',
+  'Label Printed', 'eBay Listing ID', 'Days Live', 'Sold Date', 'Notes'
+];
+
+async function initSheet() {
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({ headers: SHEET_HEADERS }),
+    });
+  } catch(e) {
+    console.log('Sheet init:', e.message);
+  }
+}
+
+async function syncFromSheet() {
+  try {
+    showSyncIndicator('Syncing...');
+
+    // JSONP to avoid CORS on GET requests to Apps Script
+    const data = await new Promise((resolve, reject) => {
+      const cbName = 'sheetCb_' + Date.now();
+      const script = document.createElement('script');
+      const timer = setTimeout(() => {
+        delete window[cbName]; script.remove();
+        reject(new Error('Timeout'));
+      }, 10000);
+      window[cbName] = (d) => {
+        clearTimeout(timer); delete window[cbName]; script.remove();
+        resolve(d);
+      };
+      script.onerror = () => { clearTimeout(timer); reject(new Error('Load failed')); };
+      script.src = APPS_SCRIPT_URL + '?action=read&callback=' + cbName;
+      document.head.appendChild(script);
+    });
+
+    if (!data.rows || data.rows.length === 0) {
+      showSyncIndicator('✓ Sheet connected — no items yet');
+      setTimeout(hideSyncIndicator, 2000);
+      return;
+    }
+
+    const sheetItems = data.rows.map(row => ({
+      id: parseInt(row[0]) || Date.now(),
+      date: parseSheetDate(row[1]),
+      locationCode: row[2] || '',
+      status: row[3] || 'queued',
+      mode: row[4] || 'clothing',
+      labelPrinted: row[18] === 'Yes',
+      fromSheet: true,
+      result: {
+        detected_brand: row[5] || '',
+        detected_item_type: row[6] || '',
+        detected_colour: row[7] || '',
+        detected_fabric: row[8] || '',
+        detected_era: row[9] || '',
+        item_specifics: { Size: row[10] || '' },
+        ebay_title: row[11] || '',
+        description: row[12] || '',
+        suggested_price_gbp: parseFloat(row[13]) || 0,
+        ebay_category: row[14] || '',
+        condition_statement: row[15] || '',
+        is_vintage: row[16] === 'Yes',
+        pricing_alert: row[17] || '',
+      }
+    }));
+
+    const sheetIds = new Set(sheetItems.map(i => String(i.id)));
+    const localOnly = state.queue.filter(i => !sheetIds.has(String(i.id)));
+    state.queue = [...sheetItems, ...localOnly];
+    localStorage.setItem('avaiva_queue', JSON.stringify(state.queue));
+
+    updateStats();
+    updateQueueStrip();
+    showSyncIndicator(`✓ Synced — ${state.queue.length} items`);
+    setTimeout(hideSyncIndicator, 2000);
+
+  } catch(e) {
+    console.warn('Sync failed:', e.message);
+    showSyncIndicator('Working offline');
+    setTimeout(hideSyncIndicator, 2000);
+  }
+}
+
+function showSyncIndicator(msg) {
+  let el = document.getElementById('syncIndicator');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'syncIndicator';
+    el.style.cssText = `
+      position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+      background:#1a3a5c;border:1px solid var(--gold);border-radius:20px;
+      padding:8px 16px;font-family:'DM Mono',monospace;font-size:11px;
+      color:var(--gold);z-index:500;transition:opacity 0.3s;white-space:nowrap;
+    `;
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  el.style.opacity = '1';
+}
+
+function hideSyncIndicator() {
+  const el = document.getElementById('syncIndicator');
+  if (el) el.style.opacity = '0';
+}
+
+async function appendToSheet(item) {
+  const r = item.result;
+  const row = [
+    String(item.id),
+    new Date(item.date).toISOString().split('T')[0],
+    item.locationCode || '',
+    item.status || 'queued',
+    item.mode,
+    r.detected_brand || '',
+    r.detected_item_type || '',
+    r.detected_colour || '',
+    r.detected_fabric || '',
+    r.detected_era || '',
+    r.item_specifics?.Size || r.item_specifics?.size || '',
+    r.ebay_title || r.discogs_title || '',
+    r.description || '',
+    String(r.suggested_price_gbp || r.discogs_price_gbp || ''),
+    r.ebay_category || '',
+    r.condition_statement || '',
+    r.is_vintage ? 'Yes' : 'No',
+    r.pricing_alert || '',
+    item.labelPrinted ? 'Yes' : 'No',
+    '', '', '', ''
+  ];
+
+  // no-cors POST — Apps Script receives it, CORS restriction only affects response
+  fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: JSON.stringify({ row }),
+  }).catch(e => console.warn('Sheet write error:', e.message));
+}
+
+// ── Mode switching ─────────────────────────────────────────────────────────
+function setMode(mode) {
+  state.mode = mode;
+  document.getElementById('clothingPanel').style.display = mode === 'clothing' ? 'block' : 'none';
+  document.getElementById('vinylPanel').style.display    = mode === 'vinyl'    ? 'block' : 'none';
+  document.getElementById('tabClothing').classList.toggle('active', mode === 'clothing');
+  document.getElementById('tabVinyl').classList.toggle('active', mode === 'vinyl');
+}
+
+// ── Photos ─────────────────────────────────────────────────────────────────
+function triggerPhoto() {
+  document.getElementById('photoInput').click();
+}
+
+function handlePhotoInput(e) {
+  const files = Array.from(e.target.files);
+  files.forEach(file => {
+    if (state.photos.length >= 8) return;
+    compressImage(file).then(dataUrl => {
+      const photoObj = { file, dataUrl, driveUrl: null };
+      state.photos.push(photoObj);
+      renderPhotoGrid();
+      updateReadiness();
+      // Upload to Drive in background — store URL when done
+      uploadPhotoToDrive(dataUrl).then(url => {
+        if (url) photoObj.driveUrl = url;
+      }).catch(() => {});
+    });
+  });
+  e.target.value = '';
+}
+
+async function uploadPhotoToDrive(dataUrl) {
+  try {
+    const response = await fetch(state.ebayScriptUrl, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'uploadPhoto', photo: dataUrl }),
+    });
+    const result = await response.json();
+    return result.url || null;
+  } catch(e) { return null; }
+}
+
+function compressImage(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        // Max 1000px on longest side — enough for AI to read labels clearly
+        const MAX = 1000;
+        let w = img.width, h = img.height;
+        if (w > h && w > MAX) { h = h * MAX / w; w = MAX; }
+        else if (h > MAX) { w = w * MAX / h; h = MAX; }
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, w, h);
+        // 0.7 quality JPEG — sharp enough for labels, small enough to send
+        resolve(canvas.toDataURL('image/jpeg', 0.7));
+      };
+      img.src = ev.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderPhotoGrid() {
+  const grid = document.getElementById('photoGrid');
+  const labels = ['FRONT','BACK','LABEL','DETAIL','DETAIL2','DETAIL3','DETAIL4','DETAIL5'];
+  grid.innerHTML = '';
+
+  // Filled slots
+  state.photos.forEach((p, i) => {
+    const slot = document.createElement('div');
+    slot.className = 'photo-slot filled';
+    slot.innerHTML = `
+      <img src="${p.dataUrl}" alt="photo ${i+1}">
+      <button class="remove-photo" onclick="removePhoto(${i}, event)">×</button>
+    `;
+    grid.appendChild(slot);
+  });
+
+  // Empty slots (up to 8 total, show at least 4)
+  const empties = Math.max(4 - state.photos.length, Math.min(8 - state.photos.length, 2));
+  for (let i = 0; i < empties; i++) {
+    const idx = state.photos.length + i;
+    const slot = document.createElement('div');
+    slot.className = 'photo-slot';
+    slot.onclick = triggerPhoto;
+    slot.innerHTML = `
+      <span class="slot-icon">${idx === 0 ? '📸' : '+'}</span>
+      <span class="slot-label">${labels[idx] || 'ADD'}</span>
+    `;
+    grid.appendChild(slot);
+  }
+
+  const count = state.photos.length;
+  document.getElementById('photoCountNum').textContent = count;
+  const note = document.getElementById('photoCountNote');
+  note.style.display = count >= 4 ? 'inline' : 'none';
+}
+
+function removePhoto(index, e) {
+  e.stopPropagation();
+  state.photos.splice(index, 1);
+  renderPhotoGrid();
+  updateReadiness();
+}
+
+// ── Voice Recording ────────────────────────────────────────────────────────
+async function toggleRecording() {
+  if (state.recording) {
+    stopRecording();
+  } else {
+    await startRecording();
+  }
+}
+
+async function startRecording() {
+  try {
+    // Reset transcript buffer for this recording
+    state.transcript = '';
+    state.interimTranscript = '';
+    state._speechBuffer = ''; // persistent buffer
+
+    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      state.speechRecognition = new SpeechRecognition();
+      state.speechRecognition.continuous = true;
+      state.speechRecognition.interimResults = true;
+      state.speechRecognition.lang = 'en-GB';
+
+      state.speechRecognition.onresult = (event) => {
+        let finalText = '';
+        let interimText = '';
+        for (let i = 0; i < event.results.length; i++) {
+          if (event.results[i].isFinal) {
+            finalText += event.results[i][0].transcript + ' ';
+          } else {
+            interimText += event.results[i][0].transcript;
+          }
+        }
+        // Always update buffer with latest final text
+        if (finalText.trim()) {
+          state._speechBuffer = finalText.trim();
+          state.transcript = state._speechBuffer;
+        }
+        // Show live transcript
+        const tr = document.getElementById('voiceTranscript');
+        tr.className = 'voice-transcript visible';
+        tr.textContent = '🎤 ' + (state._speechBuffer || interimText || '...');
+      };
+
+      state.speechRecognition.onerror = (e) => {
+        console.log('Speech recognition error:', e.error);
+      };
+
+      state.speechRecognition.onend = () => {
+        // Speech recognition ended — now safe to commit the note
+        // Use _speechBuffer which holds the last known good transcript
+        state.transcript = state._speechBuffer || state.transcript;
+        state.speechRecognition = null;
+        if (state.mediaRecorder && state.mediaRecorder.state !== 'inactive') {
+          state.mediaRecorder.stop();
+        } else {
+          onRecordingDone();
+        }
+      };
+
+      state.speechRecognition.start();
+    }
+
+    // Audio blob backup
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const chunks = [];
+    state.mediaRecorder = new MediaRecorder(stream);
+    state.mediaRecorder.ondataavailable = e => chunks.push(e.data);
+    state.mediaRecorder.onstop = () => {
+      state.audioBlob = new Blob(chunks, { type: 'audio/webm' });
+      stream.getTracks().forEach(t => t.stop());
+      // Only call onRecordingDone if speech recognition already finished
+      if (!state.speechRecognition) {
+        onRecordingDone();
+      }
+    };
+    state.mediaRecorder.start();
+    state.recording = true;
+    state.timerSeconds = 0;
+
+    // UI
+    const btn = document.getElementById('voiceBtn');
+    btn.className = 'voice-btn recording';
+    document.getElementById('voiceBtnIcon').textContent = '⏹';
+    document.getElementById('voiceBtnText').textContent = 'Tap to Stop';
+    document.getElementById('voiceDoneBtn').style.display = 'none';
+    document.getElementById('waveform').classList.add('visible');
+    document.getElementById('voiceTimer').classList.add('visible');
+
+    state.timerInterval = setInterval(() => {
+      state.timerSeconds++;
+      const m = Math.floor(state.timerSeconds / 60);
+      const s = String(state.timerSeconds % 60).padStart(2, '0');
+      document.getElementById('voiceTimer').textContent = `${m}:${s}`;
+      if (state.timerSeconds >= 120) stopRecording();
+    }, 1000);
+
+  } catch (err) {
+    alert('Microphone access needed. Please allow mic access and try again.');
+  }
+}
+
+function stopRecording() {
+  clearInterval(state.timerInterval);
+  document.getElementById('waveform').classList.remove('visible');
+  state.recording = false;
+
+  if (state.speechRecognition) {
+    // onend handler will fire after stop() and call onRecordingDone
+    try { state.speechRecognition.stop(); } catch(e) {
+      state.speechRecognition = null;
+      if (state.mediaRecorder && state.mediaRecorder.state !== 'inactive') {
+        state.mediaRecorder.stop();
+      } else {
+        onRecordingDone();
+      }
+    }
+  } else {
+    if (state.mediaRecorder && state.mediaRecorder.state !== 'inactive') {
+      state.mediaRecorder.stop();
+    } else {
+      onRecordingDone();
+    }
+  }
+}
+
+function onRecordingDone() {
+  const btn = document.getElementById('voiceBtn');
+  document.getElementById('waveform').classList.remove('visible');
+  document.getElementById('voiceTimer').classList.remove('visible');
+
+  const liveText = state.transcript; // captured during recording via Web Speech
+
+  if (liveText && liveText.trim()) {
+    // Add as a new note
+    const note = { id: Date.now(), text: liveText.trim() };
+    state.voiceNotes.push(note);
+    state.transcript = ''; // reset for next recording
+    renderVoiceNotes();
+  } else {
+    // No transcript captured — show a manual entry note
+    const note = { id: Date.now(), text: '' };
+    state.voiceNotes.push(note);
+    renderVoiceNotes();
+    // Focus the empty textarea so user can type
+    const textareas = document.querySelectorAll('.voice-note-text');
+    if (textareas.length) textareas[textareas.length - 1].focus();
+  }
+
+  // Reset button to allow another recording
+  btn.className = 'voice-btn idle';
+  document.getElementById('voiceBtnIcon').textContent = '⏺';
+  document.getElementById('voiceBtnText').textContent =
+    state.voiceNotes.length > 0 ? '+ Add Another Note' : 'Tap to Record';
+
+  // Show Done button once at least one note exists
+  const doneBtn = document.getElementById('voiceDoneBtn');
+  if (state.voiceNotes.length > 0) {
+    doneBtn.style.display = 'block';
+    doneBtn.textContent = `✓ Finished — ${state.voiceNotes.length} note${state.voiceNotes.length > 1 ? 's' : ''} ready`;
+  }
+
+  document.getElementById('voiceTranscript').className = 'voice-transcript';
+  updateReadiness();
+}
+
+function commitVoiceNotes() {
+  // Lock notes and signal ready — scroll to generate button
+  const doneBtn = document.getElementById('voiceDoneBtn');
+  doneBtn.textContent = '✓ Notes committed — ready to generate';
+  doneBtn.style.background = '#1a3a5c';
+  doneBtn.style.border = '1.5px solid var(--gold)';
+  doneBtn.disabled = true;
+
+  // Scroll down to generate button
+  document.getElementById('processBtn').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  
+  // Flash the generate button
+  const genBtn = document.getElementById('processBtn');
+  genBtn.style.transform = 'scale(1.03)';
+  genBtn.style.boxShadow = '0 0 0 4px rgba(200,151,58,0.3)';
+  setTimeout(() => {
+    genBtn.style.transform = '';
+    genBtn.style.boxShadow = '';
+  }, 800);
+}
+
+function renderVoiceNotes() {
+  const list = document.getElementById('voiceNotesList');
+  const count = document.getElementById('voiceNoteCount');
+  const notes = state.voiceNotes;
+
+  if (!notes.length) {
+    list.innerHTML = '';
+    count.textContent = '';
+    return;
+  }
+
+  count.textContent = `(${notes.length} note${notes.length > 1 ? 's' : ''})`;
+
+  list.innerHTML = notes.map((note, i) => `
+    <div class="voice-note-item" id="vn-${note.id}">
+      <div class="voice-note-num">#${i + 1}</div>
+      <textarea class="voice-note-text"
+        oninput="updateNote(${note.id}, this.value)"
+        rows="2">${escHtml(note.text)}</textarea>
+      <button class="voice-note-del" onclick="deleteNote(${note.id})" title="Remove">×</button>
+    </div>
+  `).join('');
+
+  // Auto-resize all textareas
+  list.querySelectorAll('.voice-note-text').forEach(ta => {
+    ta.style.height = 'auto';
+    ta.style.height = ta.scrollHeight + 'px';
+  });
+}
+
+function updateNote(id, text) {
+  const note = state.voiceNotes.find(n => n.id === id);
+  if (note) note.text = text;
+  updateReadiness();
+}
+
+function deleteNote(id) {
+  state.voiceNotes = state.voiceNotes.filter(n => n.id !== id);
+  renderVoiceNotes();
+  updateReadiness();
+  // Update button text
+  const btn = document.getElementById('voiceBtn');
+  document.getElementById('voiceBtnText').textContent =
+    state.voiceNotes.length > 0 ? '+ Add Another Note' : 'Tap to Record';
+}
+
+function getCombinedTranscript() {
+  return state.voiceNotes
+    .filter(n => n.text.trim())
+    .map((n, i) => n.text.trim())
+    .join(' — ');
+}
+
+async function transcribeAudio() {
+  if (!state.audioBlob) throw new Error('No audio');
+
+  // Use OpenAI Whisper API — best-in-class transcription, any accent
+  const formData = new FormData();
+  formData.append('file', state.audioBlob, 'voice.webm');
+  formData.append('model', 'whisper-1');
+  formData.append('language', 'en');
+
+  const response = await fetch('https://api.openai.com/v1/audio/transcriptions', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${state.openaiKey}`,
+    },
+    body: formData,
+  });
+
+  // If no OpenAI key, fall back to Claude for transcription
+  if (response.status === 401 || !state.openaiKey) {
+    return await transcribeWithClaude();
+  }
+
+  if (!response.ok) throw new Error(`Whisper error ${response.status}`);
+  const data = await response.json();
+  return data.text;
+}
+
+async function transcribeWithClaude() {
+  // Convert audio blob to base64 and send to Claude
+  // Claude can handle audio via base64
+  if (!state.audioBlob) throw new Error('No audio');
+
+  const base64 = await blobToBase64(state.audioBlob);
+  const audioData = base64.split(',')[1];
+  const mimeType = state.audioBlob.type || 'audio/webm';
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': state.apiKey,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true',
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 500,
+      messages: [{
+        role: 'user',
+        content: [
+          {
+            type: 'text',
+            text: 'Please transcribe this voice note exactly as spoken. Return only the transcription, nothing else.',
+          },
+          {
+            type: 'document',
+            source: {
+              type: 'base64',
+              media_type: mimeType,
+              data: audioData,
+            }
+          }
+        ]
+      }]
+    }),
+  });
+
+  // Claude doesn't support audio directly — fall back to sending as text prompt
+  // and asking user to confirm what they said
+  if (!response.ok) {
+    throw new Error('Transcription unavailable');
+  }
+
+  const data = await response.json();
+  return data.content[0].text.trim();
+}
+
+// ── Readiness indicators ───────────────────────────────────────────────────
+function updateReadiness() {
+  const rdPhotos = document.getElementById('rdPhotos');
+  const rdVoice  = document.getElementById('rdVoice');
+  const rdPrice  = document.getElementById('rdPrice');
+
+  // Photos
+  if (state.photos.length >= 4) {
+    rdPhotos.className = 'ready-dot ok';
+    rdPhotos.textContent = `📷 ${state.photos.length} photos ✓`;
+  } else if (state.photos.length > 0) {
+    rdPhotos.className = 'ready-dot warn';
+    rdPhotos.textContent = `📷 ${state.photos.length} photo${state.photos.length>1?'s':''} (add more)`;
+  } else {
+    rdPhotos.className = 'ready-dot empty';
+    rdPhotos.textContent = '📷 No photos';
+  }
+
+  // Voice
+  if (state.voiceNotes.length > 0 && state.voiceNotes.some(n => n.text.trim())) {
+    rdVoice.className = 'ready-dot ok';
+    rdVoice.textContent = `🎤 ${state.voiceNotes.length} note${state.voiceNotes.length > 1 ? 's' : ''} ✓`;
+  } else {
+    rdVoice.className = 'ready-dot warn';
+    rdVoice.textContent = '🎤 No voice note';
+  }
+
+  // Price
+  const price = document.getElementById(state.mode === 'clothing' ? 'cfPrice' : 'vfPrice').value;
+  if (price && parseFloat(price) > 0) {
+    rdPrice.className = 'ready-dot ok';
+    rdPrice.textContent = `£${parseFloat(price).toFixed(0)} ✓`;
+  } else {
+    rdPrice.className = 'ready-dot warn';
+    rdPrice.textContent = '£ No price';
+  }
+}
+
+document.addEventListener('input', updateReadiness);
+
+// ── Demo mode ──────────────────────────────────────────────────────────────
+const DEMO_ITEMS = {
+  mugler: {
+    mode: 'clothing',
+    fillFields: {
+      cfCategory: 'Skirt',
+      cfSize: '10',
+      cfPrice: '165',
+      cfCondition: 'excellent',
+      cfCondNote: '',
+    },
+    voiceText: '"Thierry Mugler Couture skirt, black fine wool, size ten, excellent condition, asking one sixty-five"',
+    result: {
+      detected_brand: 'Thierry Mugler',
+      detected_item_type: 'Couture Pencil Skirt',
+      detected_colour: 'Black',
+      detected_fabric: 'Fine Wool',
+      detected_era: '1990s',
+      ebay_title: 'Thierry Mugler Couture Vintage Black Fine Wool Pencil Skirt UK 10 FR40 1990s Rare',
+      description: `A genuinely rare find — a Thierry Mugler Couture pencil skirt in black fine wool, fully lined and impeccably tailored. The Couture label marks this as distinct from Mugler's mainline pieces, placing it in the upper tier of the archive. The silhouette is characteristically precise: a neat fitted waist dropping to just below the knee in that distinctly Mugler sculptural manner.
+
+ABOUT THIERRY MUGLER: Mugler's body-conscious designs from the 1980s and 1990s are among the most actively collected vintage pieces in the current market. The Couture label is sought after specifically by serious collectors — comparable pieces sit at £400–£800 on Vestiaire and 1stDibs.
+
+CONDITION: Excellent vintage condition. Fully lined. No issues to note.
+
+SIZE & FIT: Labelled FR 40, sized as a modern UK 10. Waist 70cm, Length 64cm. Please check measurements — happy to provide on request.
+
+WHY AVA & IVA: Every piece hand-selected and carefully inspected. Genuine vintage, honestly described. Fast dispatch, beautifully packaged. Returns accepted within 30 days.`,
+      suggested_price_gbp: 350,
+      ebay_category: "Women's Vintage Skirts",
+      ebay_category_id: '63859',
+      pricing_alert: 'Current price of £165 is significantly below market value for Mugler Couture.',
+      reprice_recommendation: 'Recommend repricing to £350–£500 before listing. Comparable pieces on Vestiaire: £400–£800.',
+      condition_statement: 'Excellent vintage condition — no issues noted.',
+      item_specifics: {
+        Brand: 'Thierry Mugler', 'Sub-label': 'Mugler Couture',
+        Era: '1990s', 'Size UK': '10', 'Size FR': '40',
+        Material: 'Fine Wool', Lining: 'Fully lined',
+        Colour: 'Black', Style: 'Pencil', Vintage: 'Yes',
+      },
+    },
+  },
+
+  versace: {
+    mode: 'clothing',
+    fillFields: {
+      cfCategory: 'Dress',
+      cfSize: 'S / IT38',
+      cfPrice: '385',
+      cfCondition: 'excellent',
+      cfCondNote: '',
+    },
+    voiceText: '"Gianni Versace silk dress, rare, size small, it\'s a stunning piece, asking three eighty-five"',
+    result: {
+      detected_brand: 'Gianni Versace',
+      detected_item_type: 'Archive Silk Dress',
+      detected_colour: 'Multicolour / Print',
+      detected_fabric: '100% Silk',
+      detected_era: 'Early 1990s',
+      ebay_title: 'Gianni Versace Vintage 1990s Silk Dress Rare Archive Piece Size S IT38 Collector',
+      description: `From the Gianni Versace archive — a silk dress from the early 1990s representing the pinnacle of Italian maximalist fashion. This is the Gianni era (pre-1997), the period collectors prize most highly. The construction quality is unmistakably couture: fluid 100% silk, precision cutting, and that signature Versace confidence of design.
+
+ABOUT GIANNI VERSACE: Gianni Versace's archive from before 1997 represents some of the most sought-after vintage fashion in the current market. Collector demand has surged significantly over the last three years — authentic pieces from this era command serious premiums and appreciate consistently.
+
+CONDITION: Excellent condition appropriate to vintage age. Please see all photographs. Label intact and clearly readable.
+
+SIZE & FIT: Labelled IT 38 / Size Small. Vintage Italian sizing — please check measurements carefully. Happy to provide bust, waist and length on request.
+
+WHY AVA & IVA: All designer pieces carefully authenticated before listing. Genuine archive vintage — no reproductions, ever. Fully insured postage, beautifully packaged.`,
+      suggested_price_gbp: 750,
+      ebay_category: "Women's Vintage Dresses",
+      ebay_category_id: '16786',
+      pricing_alert: '⚠️ URGENT — Current price of £385 is well below market value for Gianni-era Versace.',
+      reprice_recommendation: 'Recommend repricing to £650–£950. A reseller will buy at £385 and relist at double. Photograph the label clearly before listing.',
+      condition_statement: 'Excellent vintage condition — label intact.',
+      item_specifics: {
+        Brand: 'Gianni Versace', Era: '1990s',
+        'Size IT': '38', 'Size UK': 'S',
+        Material: '100% Silk', Colour: 'Multicolour',
+        Style: 'Archive Collector Piece', Vintage: 'Yes',
+        'Label': 'Gianni Versace',
+      },
+    },
+  },
+
+  vinyl: {
+    mode: 'vinyl',
+    fillFields: {
+      vfFormat: 'LP (12")',
+      vfMedia: 'Very Good Plus (VG+)',
+      vfSleeve: 'Very Good (VG)',
+      vfPrice: '',
+      vfPlatform: 'Both eBay + Discogs',
+      vfNotes: 'Light surface noise on side 2, plays fine. Sleeve has ring wear.',
+    },
+    voiceText: '"This is the Beatles White Album, UK pressing, vinyl plays very good plus, sleeve is very good, got ring wear on the front"',
+    result: {
+      detected_artist: 'The Beatles',
+      detected_title: 'The Beatles (White Album)',
+      detected_label: 'Apple Records / PMC 7067/8',
+      detected_pressing: 'UK Original Mono 1st Pressing — Apple PMC 7067/8',
+      ebay_title: 'Beatles White Album UK 1st Press Apple PMC 7067/8 Vinyl LP VG+ Sleeve VG',
+      discogs_title: 'The Beatles – The Beatles (White Album) | Apple Records PMC 7067/8 | UK 1968',
+      description: `UK first pressing of the White Album on Apple Records (PMC 7067/8). Mono configuration. Vinyl grades Very Good Plus — plays with only light surface noise on Side 2, music comes through cleanly throughout. Sleeve grades Very Good — ring wear present on front cover, which is expected on original pressings of this age (1968). All inserts present.
+
+GRADING (Goldmine Standard):
+Media: VG+ — plays very well with only minor surface noise between tracks. No skips or jumps.
+Sleeve: VG — ring wear to front. Structurally sound. No splits or repairs.
+
+PRESSING DETAILS: Apple Records UK. Catalogue PMC 7067/8. Matrix numbers visible in photos — please check for exact pressing variant confirmation.
+
+NOTE: Original UK pressings of the White Album in this condition are increasingly hard to find. The mono mix on early UK pressings is considered superior by many collectors.`,
+      suggested_price_gbp: 180,
+      discogs_price_gbp: 165,
+      media_grade: 'VG+',
+      ebay_category: 'Vinyl Records',
+      pricing_alert: '',
+      condition_note: 'Light surface noise Side 2. Sleeve ring wear. All inserts present.',
+      item_specifics: {
+        Artist: 'The Beatles', Title: 'White Album',
+        Label: 'Apple Records', 'Cat No': 'PMC 7067/8',
+        Format: 'LP', Country: 'UK',
+        Year: '1968', 'Media Grade': 'VG+',
+        'Sleeve Grade': 'VG', Pressing: '1st UK Mono',
+      },
+    },
+  },
+};
+
+async function runDemo(itemKey) {
+  const demo = DEMO_ITEMS[itemKey];
+  if (!demo) return;
+
+  // Switch mode
+  setMode(demo.mode);
+
+  // Fill fields with a satisfying animation
+  for (const [id, val] of Object.entries(demo.fillFields)) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    el.value = val;
+    el.classList.add('field-filled');
+    setTimeout(() => el.classList.remove('field-filled'), 1000);
+  }
+
+  // Simulate voice note
+  await delay(300);
+  const voiceBtn = document.getElementById('voiceBtn');
+  voiceBtn.className = 'voice-btn done';
+  document.getElementById('voiceBtnIcon').textContent = '✓';
+  document.getElementById('voiceBtnText').textContent = 'Demo voice note loaded';
+  const tr = document.getElementById('voiceTranscript');
+  tr.className = 'voice-transcript visible';
+  tr.textContent = `🎤 ${demo.voiceText}`;
+  state.audioBlob = new Blob(['demo'], { type: 'audio/webm' }); // fake blob
+
+  // Simulate photos loaded
+  state.photos = [
+    { dataUrl: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', demo: true },
+    { dataUrl: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', demo: true },
+    { dataUrl: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', demo: true },
+    { dataUrl: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', demo: true },
+  ];
+  renderPhotoGrid();
+  updateReadiness();
+
+  // Show loading then result
+  await delay(400);
+  showLoading('Analysing photos...');
+  await delay(700);
+  setLoadingStep('Reading label...');
+  await delay(600);
+  setLoadingStep('Identifying brand & era...');
+  await delay(700);
+  setLoadingStep('Generating optimised listing...');
+  await delay(800);
+  setLoadingStep('Checking market pricing...');
+  await delay(500);
+  hideLoading();
+
+  state.currentResult = demo.result;
+  showResult(demo.result);
+}
+
+// ── Process item ───────────────────────────────────────────────────────────
+async function processItem() {
+  if (state.photos.length === 0) {
+    alert('Please add at least one photo — or tap a demo button above to try without photos.');
+    return;
+  }
+
+  showLoading('Starting...');
+
+  try {
+    // Voice notes already captured via Web Speech API during recording
+    // getCombinedTranscript() will join all notes in gatherItemData()
+
+    const itemData = gatherItemData();
+    const result = await callClaudeAPI(itemData);
+    state.currentResult = result;
+    hideLoading();
+    showResult(result);
+  } catch (err) {
+    hideLoading();
+    console.error('Process error:', err);
+    alert('❌ Error: ' + err.message + '\n\nCheck:\n1. API key is correct\n2. You have credit on your account\n\nConsole: console.anthropic.com');
+  }
+}
+
+function gatherItemData() {
+  const mode = state.mode;
+  if (mode === 'clothing') {
+    return {
+      mode: 'clothing',
+      category: document.getElementById('cfCategory').value,
+      price: document.getElementById('cfPrice').value,
+      size: document.getElementById('cfSize').value,
+      condition: document.getElementById('cfCondition').value,
+      condNote: document.getElementById('cfCondNote').value,
+      transcript: getCombinedTranscript(),
+      photos: state.photos.map(p => p.driveUrl || p.dataUrl),
+    };
+  } else {
+    return {
+      mode: 'vinyl',
+      artist: document.getElementById('vfArtist').value,
+      format: document.getElementById('vfFormat').value,
+      mediaGrade: document.getElementById('vfMedia').value,
+      sleeveGrade: document.getElementById('vfSleeve').value,
+      price: document.getElementById('vfPrice').value,
+      platform: document.getElementById('vfPlatform').value,
+      notes: document.getElementById('vfNotes').value,
+      transcript: getCombinedTranscript(),
+      photos: state.photos.map(p => p.driveUrl || p.dataUrl),
+    };
+  }
+}
+
+async function callClaudeAPI(itemData) {
+  setLoadingStep('Reading label & photos...');
+  await delay(300);
+
+  // Send max 2 photos to keep response fast — front + label are most useful
+  const photoMessages = itemData.photos.slice(0, 2).map(dataUrl => ({
+    type: 'image',
+    source: {
+      type: 'base64',
+      media_type: dataUrl.split(';')[0].replace('data:', '') || 'image/jpeg',
+      data: dataUrl.split(',')[1],
+    }
+  }));
+
+  const isVinyl = itemData.mode === 'vinyl';
+
+  const systemPrompt = isVinyl
+    ? `You are an expert vinyl record dealer and eBay/Discogs listing specialist for a UK vintage shop called Ava & Iva.
+
+The seller's voice note is RAW INPUT — informal, possibly imprecise. Your job is to take that raw input plus any label photos and produce a PERFECT, professional listing.
+
+You will:
+- Identify the exact release, pressing and label from photos
+- Write an optimised eBay title (max 80 chars, front-load artist + title + key details)
+- Write a separate Discogs-formatted title
+- Write a full description following Goldmine grading standards — professional, accurate, no hype
+- Suggest pricing based on typical UK market values for the condition
+- Flag any valuable or rare pressings
+
+Return ONLY a valid JSON object with these exact keys:
+{
+  "detected_artist": "",
+  "detected_title": "",
+  "detected_label": "",
+  "detected_pressing": "",
+  "ebay_title": "",
+  "discogs_title": "",
+  "description": "",
+  "suggested_price_gbp": 0,
+  "discogs_price_gbp": 0,
+  "ebay_category": "Vinyl Records",
+  "condition_note": "",
+  "pricing_alert": "",
+  "item_specifics": {}
+}`
+    : `You are an expert vintage fashion buyer and eBay listing specialist for a UK boutique called Ava & Iva.
+
+The seller's voice notes are RAW INPUT — casual, conversational, possibly multiple takes. Combine ALL notes into one perfect listing.
+
+CRITICAL FORMATTING: Plain text only. No markdown, no **bold**, no asterisks. ALL CAPS section headers. No bullet points.
+
+TITLE RULES:
+- Max 80 characters
+- Front-load brand name
+- Include: item type, key detail, size, colour
+- Real search terms only — no "stunning", "beautiful", "gorgeous"
+- Ask: what would a buyer type into eBay to find this exact item?
+
+DESCRIPTION — flowing prose, these sections in order:
+
+ABOUT THE BRAND
+1-2 sentences specific to this brand AND this item type. Not generic — Whistles leather gets different copy to Whistles silk. Vintage with no clear brand: skip this section.
+
+THE PIECE
+2-3 sentences. Specific details visible in photos — construction, hardware, fabric, cut. Write with authority. Make the buyer feel an expert is describing it. Never use "stunning" or "beautiful".
+
+CONDITION
+Trust section. State what's excellent specifically — zips, lining, leather/fabric condition. If seller mentions any flaw, state it clearly and honestly. If no flaws: say so with confidence. End with a one-line confidence closer like "A piece that's clearly been cared for." or "Exactly what you'd hope to find."
+
+WHY THIS PIECE
+2-3 sentences making THIS specific item worth buying at this price. Not generic brand praise — what makes this jacket/coat/dress special. Quality that lasts, resale value, wearability. Write like a knowledgeable friend recommending it, not a salesperson. This closes the sale.
+
+SIZE AND FIT
+Modern brands: state label size + one sentence on that brand's sizing (e.g. "Whistles sizing is consistent and true to size"). Vintage: list measurements if provided, note that vintage sizing differs from modern labels.
+
+AVA & IVA
+Use exactly: "Ava & Iva is a carefully curated boutique specialising in quality vintage and contemporary pieces. Every item is hand-selected, honestly described and sent out beautifully packaged. Any questions about fit, condition or provenance — just ask."
+
+POSTAGE AND RETURNS
+Use exactly: "Dispatched via tracked Royal Mail. Returns accepted within 14 days if the item differs significantly from our description."
+
+SIZE DETECTION (CRITICAL): Voice notes are primary for size. If seller says "size 14", "UK 14", or "fourteen" — use it confidently. Never say size unclear if voice notes mention it.
+
+VINTAGE: If pre-2000, unbranded, or seller mentions vintage, set "is_vintage": true.
+
+PRICING: If seller states a price in their voice notes, use that exact price — do not adjust it up or down. Only suggest a different price if no price was given, in which case suggest fair current market value. If you think the seller's price is significantly below market, flag it in pricing_alert but still use their stated price in suggested_price_gbp.
+
+EBAY UK CATEGORY IDs — pick the single most specific leaf category:
+WOMEN'S CLOTHING:
+- Jackets & Coats: 50993
+- Dresses: 50986
+- Tops & Shirts: 50997
+- Skirts: 50994
+- Trousers & Leggings: 50999
+- Jeans: 11555
+- Jumpers & Cardigans: 50996
+- Suits & Tailoring: 50995
+- Shorts: 50998
+- Swimwear: 50983
+- Lingerie & Nightwear: 50984
+- Activewear: 183304
+- Blouses: 50997
+MEN'S CLOTHING:
+- Jackets & Coats: 57988
+- Shirts: 57991
+- Trousers: 57997
+- Jeans: 57989
+- Jumpers & Cardigans: 57990
+- Suits: 57992
+- T-Shirts: 57996
+SHOES:
+- Women's Heels: 62107
+- Women's Boots: 62111
+- Women's Flats: 45333
+- Women's Trainers: 95672
+- Men's Shoes: 93427
+- Men's Boots: 11498
+ACCESSORIES:
+- Women's Bags & Handbags: 169291
+- Scarves & Wraps: 45238
+- Belts: 2993
+- Hats: 52365
+- Sunglasses: 79720
+- Women's Jewellery (general): 50986 
+- Necklaces & Pendants: 164
+- Earrings: 10986
+- Rings: 67726
+- Bracelets: 137835
+- Brooches: 14053
+- Vintage Jewellery: 478
+VINYL:
+- Pop: 306
+- Rock: 38034
+- Soul/R&B: 40651
+- Jazz: 1698
+- Classical: 1699
+- Electronic/Dance: 1572
+- Hip Hop: 85
+- Folk: 1699
+- Country: 1699
+
+Return ONLY valid JSON:
+{
+  "detected_brand": "",
+  "detected_item_type": "",
+  "detected_colour": "",
+  "detected_fabric": "",
+  "detected_era": "",
+  "is_vintage": false,
+  "ebay_title": "",
+  "description": "",
+  "suggested_price_gbp": 0,
+  "ebay_category": "",
+  "ebay_category_id": "",
+  "pricing_alert": "",
+  "reprice_recommendation": "",
+  "condition_statement": "",
+  "item_specifics": {
+    "Type": "",
+    "Colour": "",
+    "Brand": "",
+    "Size": "",
+    "Material": "",
+    "Style": "",
+    "Era": ""
+  }
+}`;
+
+  const userContent = [
+    ...photoMessages,
+    {
+      type: 'text',
+      text: isVinyl
+        ? `RAW SELLER VOICE NOTE (transcribed from speech — may be casual/imprecise):
+"${itemData.transcript || 'no voice note provided'}"
+
+Additional manual fields:
+Artist (if entered): ${itemData.artist || 'not specified — detect from label photo'}
+Format: ${itemData.format}
+Media grade: ${itemData.mediaGrade}
+Sleeve grade: ${itemData.sleeveGrade}
+Seller's asking price: £${itemData.price || 'not specified — suggest based on typical market values'}
+Platform: ${itemData.platform}
+Extra condition notes: ${itemData.notes || 'none'}
+
+Please identify the exact release from the label photo. Generate perfect professional titles for both eBay and Discogs. Write a condition-accurate description following Goldmine grading standards.`
+
+        : `RAW SELLER VOICE NOTE (transcribed from speech — casual language, may be vague):
+"${itemData.transcript || 'no voice note — use photos only'}"
+
+Additional manual fields (may be blank if seller used voice only):
+Category hint: ${itemData.category || 'detect from photos and voice'}
+Size: ${itemData.size || 'detect from label in photos'}
+Condition flag: ${itemData.condition || 'good'}
+Condition note: ${itemData.condNote || 'none'}
+Seller's asking price: £${itemData.price || 'not specified — suggest a fair market price'}
+
+IMPORTANT: The voice note is raw casual speech. Transform it into a perfect eBay listing. Read the label in the photos to confirm brand, identify fabric from the photos, determine era from style and label. The final title and description should be significantly more professional and complete than the voice note suggests.`,
+    }
+  ];
+
+  setLoadingStep('Generating optimised listing...');
+  await delay(200);
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': state.apiKey,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true',
+    },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1500,
+      system: systemPrompt,
+      messages: [{ role: 'user', content: userContent }],
+    }),
+  });
+
+  if (!response.ok) throw new Error(`API error ${response.status}`);
+  const data = await response.json();
+  const text = data.content[0].text.trim();
+
+  // Parse JSON from response
+  const jsonMatch = text.match(/\{[\s\S]*\}/);
+  if (!jsonMatch) throw new Error('No JSON in response');
+  const parsed = JSON.parse(jsonMatch[0]);
+
+  setLoadingStep('Done!');
+  return parsed;
+}
+
+function generateFallbackResult() {
+  // Demo result when no API key
+  return {
+    detected_brand: 'Jaeger',
+    detected_item_type: 'Wool Skirt',
+    detected_colour: 'Forest Green',
+    detected_fabric: '100% Wool',
+    detected_era: '1990s',
+    ebay_title: 'Jaeger Vintage Forest Green 100% Wool Pencil Skirt UK Size 12 1990s Designer',
+    description: `A beautifully cut Jaeger wool skirt in deep forest green — a timeless piece from one of Britain's most respected heritage fashion houses. The 100% wool construction gives a satisfying weight and drape, with a clean pencil silhouette that sits just below the knee. Fully lined.
+
+ABOUT JAEGER: Jaeger was a cornerstone of quality British fashion for decades. Vintage Jaeger pieces — particularly wool tailoring — are well-made, enduring and increasingly appreciated by those who value quality over fast fashion.
+
+CONDITION: Excellent vintage condition. No issues to note.
+
+SIZE & FIT: Labelled UK 12. Vintage sizing may run slightly smaller than modern equivalents — please check measurements. Happy to provide waist/hip/length on request.
+
+WHY AVA & IVA: Every piece hand-selected. Genuine vintage, honestly described. Fast dispatch, beautiful packaging.`,
+    suggested_price_gbp: 65,
+    ebay_category: 'Women\'s Vintage Skirts',
+    ebay_category_id: '63859',
+    pricing_alert: '',
+    reprice_recommendation: '',
+    condition_statement: 'Excellent vintage condition — no issues noted.',
+    item_specifics: {
+      Brand: 'Jaeger', Material: '100% Wool', Colour: 'Forest Green',
+      Era: '1990s', Size: 'UK 12', Style: 'Pencil', Vintage: 'Yes',
+    },
+  };
+}
+
+// ── Show Result ────────────────────────────────────────────────────────────
+function showResult(result) {
+  const isVinyl = state.mode === 'vinyl';
+  const body = document.getElementById('resultBody');
+
+  const price = result.suggested_price_gbp || result.discogs_price_gbp || 0;
+  const title = result.ebay_title || result.discogs_title || 'Generated title';
+
+  let html = '';
+
+  // Pricing alert
+  if (result.pricing_alert) {
+    html += `<div class="alert-box"><strong>⚠️ Pricing Alert:</strong> ${result.pricing_alert}</div>`;
+  }
+  if (result.reprice_recommendation) {
+    html += `<div class="alert-box"><strong>💡 Recommended:</strong> ${result.reprice_recommendation}</div>`;
+  }
+  if (result.is_vintage) {
+    html += `<div class="alert-box" style="background:rgba(200,151,58,0.12);border-color:rgba(200,151,58,0.4);color:#f0d9a0">
+      <strong style="color:var(--gold)">📏 Vintage Item — Add Measurements</strong><br>
+      Record an additional voice note with: bust, waist, hips, length (and sleeve if relevant). 
+      Then hit <em>Edit</em> and add them to the description, or close and re-generate with the new note.
+    </div>`;
+  }
+
+  // Title
+  html += `<div class="result-field">
+    <div class="result-field-label">eBay Title (${title.length} chars)</div>
+    <div class="result-title">${escHtml(title)}</div>
+  </div>`;
+
+  if (isVinyl && result.discogs_title) {
+    html += `<div class="result-field">
+      <div class="result-field-label">Discogs Title</div>
+      <div class="result-title">${escHtml(result.discogs_title)}</div>
+    </div>`;
+  }
+
+  // Meta grid
+  const metaItems = isVinyl ? [
+    { k: 'Artist', v: result.detected_artist || '—' },
+    { k: 'Label', v: result.detected_label || '—' },
+    { k: 'Pressing', v: result.detected_pressing || '—' },
+    { k: 'Media', v: result.media_grade || '—' },
+    { k: 'Suggested £', v: `£${price}`, cls: 'price' },
+    { k: 'Platform', v: 'eBay + Discogs' },
+  ] : [
+    { k: 'Brand', v: result.detected_brand || '—' },
+    { k: 'Type', v: result.detected_item_type || '—' },
+    { k: 'Colour', v: result.detected_colour || '—' },
+    { k: 'Fabric', v: result.detected_fabric || '—' },
+    { k: 'Era', v: result.detected_era || '—' },
+    { k: 'Suggested £', v: `£${price}`, cls: 'price' },
+    { k: 'Category', v: result.ebay_category || '—' },
+    { k: 'Condition', v: result.condition_statement || '—' },
+  ];
+
+  html += `<div class="result-field">
+    <div class="result-field-label">Detected Details</div>
+    <div class="result-meta-grid">
+      ${metaItems.map(m => `
+        <div class="result-meta-item">
+          <div class="result-meta-key">${m.k}</div>
+          <div class="result-meta-val ${m.cls||''}">${escHtml(String(m.v))}</div>
+        </div>`).join('')}
+    </div>
+  </div>`;
+
+  // Item specifics
+  if (result.item_specifics && Object.keys(result.item_specifics).length) {
+    html += `<div class="result-field">
+      <div class="result-field-label">Item Specifics</div>
+      <div class="result-meta-grid">
+        ${Object.entries(result.item_specifics).map(([k,v]) => `
+          <div class="result-meta-item">
+            <div class="result-meta-key">${escHtml(k)}</div>
+            <div class="result-meta-val">${escHtml(String(v))}</div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+  }
+
+  // Description
+  html += `<div class="result-field">
+    <div class="result-field-label">eBay Description</div>
+    <div class="result-desc">${escHtml(result.description || '')}</div>
+  </div>`;
+
+  // Photo preview strip — skip demo placeholders
+  const realPhotos = state.photos.filter(p => !p.demo);
+  if (realPhotos.length > 0) {
+    html += `<div class="result-field">
+      <div class="result-field-label">${realPhotos.length} Photos Attached</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        ${realPhotos.map(p => `<img src="${p.dataUrl}" style="width:60px;height:60px;object-fit:cover;border-radius:6px;border:1px solid #3a3830">`).join('')}
+      </div>
+    </div>`;
+  } else if (state.photos.length > 0) {
+    html += `<div class="result-field">
+      <div class="result-field-label">📷 Photos</div>
+      <div style="font-size:11px;color:var(--mid);font-family:'DM Mono',monospace">
+        ${state.photos.length} demo photos simulated — real item photos will appear here
+      </div>
+    </div>`;
+  }
+
+  body.innerHTML = html;
+  document.getElementById('resultOverlay').classList.add('visible');
+}
+
+// ── Actions ────────────────────────────────────────────────────────────────
+function approveItem() {
+  if (!state.currentResult) return;
+  // Show location assignment before saving
+  showLocationModal();
+}
+
+function showLocationModal() {
+  const locations = state.locations;
+  const active = locations.filter(l => !l.full);
+  const current = active[0] || locations[locations.length - 1];
+
+  // Generate next item code
+  const nextCode = current
+    ? `${current.id}-${String(current.count + 1).padStart(3, '0')}`
+    : 'CLR01-001';
+
+  const html = `
+    <div style="position:fixed;inset:0;background:rgba(10,10,8,0.96);z-index:400;
+      display:flex;align-items:center;justify-content:center;padding:20px" id="locationModal">
+      <div style="background:#1a1916;border:2px solid var(--gold);border-radius:16px;
+        padding:24px;width:100%;max-width:420px">
+
+        <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);
+          margin-bottom:4px">📍 Assign Location</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);
+          margin-bottom:20px">Where is this item going?</div>
+
+        <!-- Item code preview -->
+        <div style="background:#0f0e0b;border:1.5px solid var(--gold);border-radius:10px;
+          padding:16px;margin-bottom:16px;text-align:center">
+          <div style="font-family:'DM Mono',monospace;font-size:28px;font-weight:500;
+            color:var(--gold);letter-spacing:0.05em" id="codePreview">${nextCode}</div>
+          <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);
+            margin-top:4px">${state.currentResult.detected_brand || ''} · ${state.currentResult.detected_item_type || ''}</div>
+        </div>
+
+        <!-- Location selector -->
+        <div style="margin-bottom:16px">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;
+            text-transform:uppercase;color:var(--gold);margin-bottom:8px">Location</div>
+          <select id="locationSelect" onchange="updateCodePreview()"
+            style="width:100%;padding:12px;background:#0f0e0b;border:1.5px solid #3a3830;
+            border-radius:8px;color:var(--cream);font-family:'DM Mono',monospace;font-size:14px">
+            ${locations.filter(l => !l.full).map(l => `
+              <option value="${l.id}">${l.id} — ${l.count} items ${l.type === 'box' ? '📦' : '👗'}</option>
+            `).join('')}
+          </select>
+        </div>
+
+        <!-- Buttons -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px">
+          <button onclick="document.getElementById('locationModal').remove()"
+            style="padding:14px;background:transparent;border:1.5px solid #3a3830;
+            border-radius:10px;color:var(--mid);font-family:'DM Sans',sans-serif;
+            font-size:14px;cursor:pointer">Cancel</button>
+          <button onclick="confirmLocation()"
+            style="padding:14px;background:var(--gold);border:none;border-radius:10px;
+            color:var(--ink);font-family:'DM Sans',sans-serif;font-size:14px;
+            font-weight:600;cursor:pointer">✓ Assign & Save</button>
+        </div>
+
+        <div style="margin-top:12px;text-align:center">
+          <button onclick="openLocationSettings()"
+            style="background:none;border:none;color:var(--mid);font-family:'DM Mono',monospace;
+            font-size:10px;cursor:pointer;text-decoration:underline">
+            ⚙ Manage rails & boxes
+          </button>
+        </div>
+      </div>
+    </div>`;
+
+  document.body.insertAdjacentHTML('beforeend', html);
+}
+
+function updateCodePreview() {
+  const sel = document.getElementById('locationSelect');
+  const loc = state.locations.find(l => l.id === sel.value);
+  if (loc) {
+    const code = `${loc.id}-${String(loc.count + 1).padStart(3, '0')}`;
+    document.getElementById('codePreview').textContent = code;
+  }
+}
+
+function confirmLocation() {
+  const sel = document.getElementById('locationSelect');
+  const locId = sel ? sel.value : (state.locations.find(l => !l.full) || state.locations[0]).id;
+  const loc = state.locations.find(l => l.id === locId);
+  if (!loc) return;
+
+  // Increment count
+  loc.count++;
+  const itemCode = `${loc.id}-${String(loc.count).padStart(3, '0')}`;
+  localStorage.setItem('avaiva_locations', JSON.stringify(state.locations));
+
+  // Remove modal
+  const modal = document.getElementById('locationModal');
+  if (modal) modal.remove();
+
+  // Save item with location code
+  const item = {
+    id: Date.now(),
+    date: new Date().toISOString(),
+    mode: state.mode,
+    result: state.currentResult,
+    photos: state.photos.map(p => p.dataUrl.substring(0, 50) + '...'),
+    status: 'queued',
+    locationCode: itemCode,
+    locationId: locId,
+    labelPrinted: false,
+  };
+
+  state.queue.push(item);
+  state.todayCount++;
+  state.totalCount++;
+  localStorage.setItem('avaiva_queue', JSON.stringify(state.queue));
+  localStorage.setItem('avaiva_today_' + todayKey(), state.todayCount);
+  localStorage.setItem('avaiva_total', state.totalCount);
+
+  // Write to Google Sheets
+  appendToSheet(item).then(result => {
+    console.log('✓ Saved to Google Sheets:', item.locationCode, result);
+  }).catch(err => {
+    console.warn('✗ Sheets write failed:', err.message);
+  });
+
+  document.getElementById('resultOverlay').classList.remove('visible');
+  resetForm();
+  updateStats();
+  updateQueueStrip();
+
+  // Show label print prompt
+  showLabelPrint(item, itemCode);
+}
+
+function showLabelPrint(item, code) {
+  const r = item.result;
+  const brand = r.detected_brand || '';
+  const type = r.detected_item_type || '';
+  const size = r.item_specifics?.Size || r.item_specifics?.size || '';
+  const price = r.suggested_price_gbp || '';
+  const date = new Date().toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
+
+  const html = `
+    <div style="position:fixed;inset:0;background:rgba(10,10,8,0.96);z-index:400;
+      display:flex;align-items:center;justify-content:center;padding:20px" id="labelModal">
+      <div style="background:#1a1916;border:2px solid #2a2820;border-radius:16px;
+        padding:24px;width:100%;max-width:420px">
+
+        <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);
+          margin-bottom:4px">✓ Added to Queue</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);
+          margin-bottom:20px">Item saved · print label for the rail</div>
+
+        <!-- Label preview -->
+        <div style="background:white;color:#111;border-radius:10px;padding:16px;
+          margin-bottom:16px;font-family:'DM Mono',monospace" id="labelPreview">
+          <div style="font-size:22px;font-weight:700;letter-spacing:0.05em;margin-bottom:4px">
+            ${code}
+          </div>
+          <div style="font-size:13px;margin-bottom:2px">${brand}</div>
+          <div style="font-size:12px;color:#444;margin-bottom:6px">${type}</div>
+          <div style="display:flex;gap:16px;font-size:11px">
+            ${size ? `<span>Size ${size}</span>` : ''}
+            ${price ? `<span>£${price}</span>` : ''}
+            <span>${date}</span>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <button onclick="document.getElementById('labelModal').remove()"
+            style="padding:14px;background:transparent;border:1.5px solid #3a3830;
+            border-radius:10px;color:var(--mid);font-family:'DM Sans',sans-serif;
+            font-size:14px;cursor:pointer">Skip Print</button>
+          <button onclick="printLabel('${code}','${brand}','${type}','${size}','${price}','${date}')"
+            style="padding:14px;background:var(--green);border:none;border-radius:10px;
+            color:white;font-family:'DM Sans',sans-serif;font-size:14px;
+            font-weight:600;cursor:pointer">🖨 Print Label</button>
+        </div>
+      </div>
+    </div>`;
+
+  document.body.insertAdjacentHTML('beforeend', html);
+}
+
+function printLabel(code, brand, type, size, price, date) {
+  const win = window.open('', '_blank', 'width=400,height=300');
+  win.document.write(`
+    <!DOCTYPE html><html><head>
+    <style>
+      body { font-family: monospace; margin: 0; padding: 12px; width: 152mm; }
+      .code { font-size: 28pt; font-weight: bold; letter-spacing: 2px; margin-bottom: 4px; }
+      .brand { font-size: 14pt; margin-bottom: 2px; }
+      .detail { font-size: 11pt; color: #444; margin-bottom: 8px; }
+      .meta { font-size: 10pt; display: flex; gap: 20px; }
+      @media print { @page { margin: 5mm; size: 152mm 102mm; } }
+    </style></head><body>
+    <div class="code">${code}</div>
+    <div class="brand">${brand}</div>
+    <div class="detail">${type}</div>
+    <div class="meta">
+      ${size ? `<span>Size ${size}</span>` : ''}
+      ${price ? `<span>£${price}</span>` : ''}
+      <span>${date}</span>
+    </div>
+    <script>window.onload = () => { window.print(); window.close(); }<\/script>
+    </body></html>`);
+  win.document.close();
+  document.getElementById('labelModal').remove();
+}
+
+function openLocationSettings() {
+  document.getElementById('locationModal')?.remove();
+  const locs = state.locations;
+  const html = `
+    <div style="position:fixed;inset:0;background:rgba(10,10,8,0.96);z-index:400;
+      overflow-y:auto;padding:20px" id="locationSettingsModal">
+      <div style="max-width:460px;margin:0 auto">
+        <div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);
+          margin-bottom:4px">⚙ Rails & Boxes</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid);
+          margin-bottom:20px">Manage storage locations</div>
+
+        <div id="locationList">
+          ${renderLocationList(locs)}
+        </div>
+
+        <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <button onclick="addLocation('rail')"
+            style="padding:12px;background:transparent;border:1.5px solid var(--gold);
+            border-radius:10px;color:var(--gold);font-family:'DM Sans',sans-serif;
+            font-size:13px;cursor:pointer">+ Add Rail</button>
+          <button onclick="addLocation('box')"
+            style="padding:12px;background:transparent;border:1.5px solid #3a3830;
+            border-radius:10px;color:var(--mid);font-family:'DM Sans',sans-serif;
+            font-size:13px;cursor:pointer">+ Add Box</button>
+        </div>
+
+        <button onclick="document.getElementById('locationSettingsModal').remove();showLocationModal()"
+          style="width:100%;margin-top:12px;padding:14px;background:var(--gold);
+          border:none;border-radius:10px;color:var(--ink);font-family:'DM Sans',sans-serif;
+          font-size:14px;font-weight:600;cursor:pointer">← Back</button>
+      </div>
+    </div>`;
+  document.body.insertAdjacentHTML('beforeend', html);
+}
+
+function renderLocationList(locs) {
+  return locs.map((l, i) => `
+    <div style="background:#1a1916;border:1px solid ${l.full ? '#c0392b44' : '#2a2820'};
+      border-radius:10px;padding:14px 16px;margin-bottom:8px;
+      display:flex;align-items:center;gap:12px">
+      <div style="font-size:20px">${l.type === 'box' ? '📦' : '👗'}</div>
+      <div style="flex:1">
+        <div style="font-family:'DM Mono',monospace;font-size:14px;color:var(--cream);
+          font-weight:500">${l.id}</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--mid)">
+          ${l.count} items · ${l.full ? '<span style="color:#ff6b6b">FULL</span>' : 'Active'}</div>
+      </div>
+      ${l.full
+        ? `<button onclick="reopenLocation(${i})"
+            style="padding:6px 10px;background:transparent;border:1px solid #3a3830;
+            border-radius:6px;color:var(--mid);font-size:10px;cursor:pointer;
+            font-family:'DM Mono',monospace">Reopen</button>`
+        : `<button onclick="markLocationFull(${i})"
+            style="padding:6px 10px;background:transparent;border:1px solid #c0392b55;
+            border-radius:6px;color:#ff6b6b;font-size:10px;cursor:pointer;
+            font-family:'DM Mono',monospace">Mark Full</button>`}
+    </div>`).join('');
+}
+
+function markLocationFull(index) {
+  state.locations[index].full = true;
+  localStorage.setItem('avaiva_locations', JSON.stringify(state.locations));
+  // Auto-create next location of same type
+  const loc = state.locations[index];
+  const type = loc.type;
+  const prefix = type === 'box' ? 'CLB' : 'CLR';
+  const existing = state.locations.filter(l => l.type === type).length;
+  const newId = `${prefix}${String(existing + 1).padStart(2, '0')}`;
+  state.locations.push({ id: newId, type, count: 0, full: false });
+  localStorage.setItem('avaiva_locations', JSON.stringify(state.locations));
+  document.getElementById('locationList').innerHTML = renderLocationList(state.locations);
+}
+
+function reopenLocation(index) {
+  state.locations[index].full = false;
+  localStorage.setItem('avaiva_locations', JSON.stringify(state.locations));
+  document.getElementById('locationList').innerHTML = renderLocationList(state.locations);
+}
+
+function addLocation(type) {
+  const prefix = type === 'box' ? 'CLB' : 'CLR';
+  const existing = state.locations.filter(l => l.type === type).length;
+  const newId = `${prefix}${String(existing + 1).padStart(2, '0')}`;
+  state.locations.push({ id: newId, type, count: 0, full: false });
+  localStorage.setItem('avaiva_locations', JSON.stringify(state.locations));
+  document.getElementById('locationList').innerHTML = renderLocationList(state.locations);
+}
+
+function editItem() {
+  const r = state.currentResult;
+  if (!r) return;
+
+  // Build editable form from current result
+  const isVinyl = state.mode === 'vinyl';
+  const body = document.getElementById('editBody');
+
+  // Title char counter helper
+  const titleId = 'edit_ebay_title';
+
+  let html = '';
+
+  // eBay Title
+  html += `
+  <div class="edit-field">
+    <div class="edit-field-label">
+      eBay Title
+      <em>max 80 chars</em>
+    </div>
+    <input class="edit-input" id="edit_ebay_title"
+      value="${escAttr(r.ebay_title || '')}"
+      maxlength="80"
+      oninput="updateCharCount('edit_ebay_title','edit_title_count',80)">
+    <div class="edit-char-count" id="edit_title_count">${(r.ebay_title||'').length} / 80</div>
+  </div>`;
+
+  // Discogs title (vinyl only)
+  if (isVinyl && r.discogs_title) {
+    html += `
+  <div class="edit-field">
+    <div class="edit-field-label">Discogs Title</div>
+    <input class="edit-input" id="edit_discogs_title" value="${escAttr(r.discogs_title || '')}">
+  </div>`;
+  }
+
+  // Price
+  html += `
+  <div class="edit-field">
+    <div class="edit-field-label">
+      Price (£)
+      ${r.pricing_alert ? '<em style="color:#ff9999">⚠️ See pricing alert</em>' : ''}
+    </div>
+    ${r.pricing_alert ? `<div style="font-size:11px;color:#ff9999;background:rgba(192,57,43,0.1);border-radius:6px;padding:8px 10px;margin-bottom:8px;line-height:1.5">${escHtml(r.pricing_alert)}</div>` : ''}
+    <input class="edit-input" id="edit_price" type="number" step="0.50"
+      value="${r.suggested_price_gbp || r.discogs_price_gbp || ''}">
+  </div>`;
+
+  // Description
+  const descLines = (r.description || '').split('\n').length + 3;
+  html += `
+  <div class="edit-field">
+    <div class="edit-field-label">Description</div>
+    <textarea class="edit-textarea" id="edit_description"
+      style="height:${Math.min(Math.max(descLines * 20, 180), 400)}px"
+      oninput="autoResize(this)">${escHtml(r.description || '')}</textarea>
+  </div>`;
+
+  // Condition statement
+  if (r.condition_statement) {
+    html += `
+  <div class="edit-field">
+    <div class="edit-field-label">Condition Statement</div>
+    <input class="edit-input" id="edit_condition"
+      value="${escAttr(r.condition_statement || '')}">
+  </div>`;
+  }
+
+  // Item specifics — all editable
+  if (r.item_specifics && Object.keys(r.item_specifics).length) {
+    html += `
+  <div class="edit-field">
+    <div class="edit-field-label">Item Specifics</div>
+    <div class="edit-specifics-grid">`;
+    Object.entries(r.item_specifics).forEach(([k, v]) => {
+      const fieldId = 'edit_spec_' + k.replace(/[^a-zA-Z0-9]/g, '_');
+      html += `
+      <div class="edit-spec-item">
+        <div class="edit-spec-key">${escHtml(k)}</div>
+        <input class="edit-spec-input" id="${fieldId}" data-spec-key="${escAttr(k)}" value="${escAttr(String(v))}">
+      </div>`;
+    });
+    html += `</div></div>`;
+  }
+
+  body.innerHTML = html;
+
+  // Hide result, show edit
+  document.getElementById('resultOverlay').classList.remove('visible');
+  document.getElementById('editOverlay').classList.add('visible');
+  requestAnimationFrame(() => { document.getElementById('editOverlay').scrollTop = 0; });
+
+  // Init char count
+  updateCharCount('edit_ebay_title', 'edit_title_count', 80);
+}
+
+function updateCharCount(inputId, countId, max) {
+  const input = document.getElementById(inputId);
+  const counter = document.getElementById(countId);
+  if (!input || !counter) return;
+  const len = input.value.length;
+  counter.textContent = `${len} / ${max}`;
+  counter.className = 'edit-char-count' + (len > max ? ' over' : len > max * 0.9 ? ' warn' : '');
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight + 2, 500) + 'px';
+}
+
+function backToResult() {
+  document.getElementById('editOverlay').classList.remove('visible');
+  document.getElementById('resultOverlay').classList.add('visible');
+}
+
+function saveEditsAndApprove() {
+  if (!state.currentResult) return;
+
+  // Read all edited values back into currentResult
+  const r = state.currentResult;
+
+  const titleEl = document.getElementById('edit_ebay_title');
+  if (titleEl) r.ebay_title = titleEl.value.trim();
+
+  const discEl = document.getElementById('edit_discogs_title');
+  if (discEl) r.discogs_title = discEl.value.trim();
+
+  const priceEl = document.getElementById('edit_price');
+  if (priceEl && priceEl.value) {
+    const p = parseFloat(priceEl.value);
+    r.suggested_price_gbp = p;
+    r.discogs_price_gbp = p;
+  }
+
+  const descEl = document.getElementById('edit_description');
+  if (descEl) r.description = descEl.value;
+
+  const condEl = document.getElementById('edit_condition');
+  if (condEl) r.condition_statement = condEl.value.trim();
+
+  // Item specifics
+  document.querySelectorAll('.edit-spec-input').forEach(el => {
+    const key = el.dataset.specKey;
+    if (key && r.item_specifics) r.item_specifics[key] = el.value.trim();
+  });
+
+  // Close edit overlay and approve
+  document.getElementById('editOverlay').classList.remove('visible');
+  approveItem();
+}
+
+// ── Queue strip ────────────────────────────────────────────────────────────
+function printPendingLabels() {
+  const pending = state.queue.filter(item => item.locationCode && !item.labelPrinted);
+
+  if (!pending.length) {
+    alert('No pending labels — all items have been printed already.');
+    return;
+  }
+
+  // Build a single print page with all labels
+  const win = window.open('', '_blank', 'width=600,height=800');
+
+  const labelsHtml = pending.map(item => {
+    const r = item.result;
+    const code = item.locationCode;
+    const brand = r.detected_brand || '';
+    const type = r.detected_item_type || '';
+    const size = r.item_specifics?.Size || r.item_specifics?.size || '';
+    const price = r.suggested_price_gbp || r.discogs_price_gbp || '';
+    const date = new Date(item.date).toLocaleDateString('en-GB', {
+      day: 'numeric', month: 'short', year: 'numeric'
+    });
+
+    return `
+      <div class="label">
+        <div class="code">${code}</div>
+        <div class="brand">${brand}</div>
+        <div class="type">${type}</div>
+        <div class="meta">
+          ${size ? `<span>Size ${size}</span>` : ''}
+          ${price ? `<span>£${price}</span>` : ''}
+          <span>${date}</span>
+        </div>
+        <div class="divider"></div>
+      </div>`;
+  }).join('');
+
+  win.document.write(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Ava & Iva — Print Labels</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: 'Courier New', monospace;
+        background: white;
+        padding: 8mm;
+      }
+      .header {
+        font-size: 11pt;
+        color: #666;
+        margin-bottom: 8mm;
+        padding-bottom: 4mm;
+        border-bottom: 1px solid #ccc;
+      }
+      .label {
+        width: 152mm;
+        padding: 6mm 0;
+        page-break-inside: avoid;
+      }
+      .code {
+        font-size: 32pt;
+        font-weight: bold;
+        letter-spacing: 3px;
+        margin-bottom: 3mm;
+      }
+      .brand {
+        font-size: 14pt;
+        font-weight: bold;
+        margin-bottom: 1mm;
+      }
+      .type {
+        font-size: 11pt;
+        color: #444;
+        margin-bottom: 3mm;
+      }
+      .meta {
+        font-size: 10pt;
+        display: flex;
+        gap: 12mm;
+        color: #333;
+      }
+      .divider {
+        border-bottom: 1px dashed #ccc;
+        margin-top: 6mm;
+      }
+      @media print {
+        .header { display: none; }
+        .label { page-break-after: always; }
+        .label:last-child { page-break-after: avoid; }
+        @page {
+          size: 152mm 102mm;
+          margin: 5mm;
+        }
+      }
+    </style>
+    </head>
+    <body>
+      <div class="header">
+        AVA & IVA — ${pending.length} label${pending.length > 1 ? 's' : ''} to print
+        · ${new Date().toLocaleDateString('en-GB')}
+      </div>
+      ${labelsHtml}
+      <script>
+        window.onload = () => {
+          window.print();
+        };
+      <\/script>
+    </body>
+    </html>`);
+
+  win.document.close();
+
+  // Mark all as printed
+  pending.forEach(item => {
+    const qi = state.queue.find(q => q.id === item.id);
+    if (qi) qi.labelPrinted = true;
+  });
+  localStorage.setItem('avaiva_queue', JSON.stringify(state.queue));
+  updateQueueStrip();
+  renderQueueList();
+}
+
+function updateQueueStrip() {
+  document.getElementById('queueNum').textContent = state.queue.length;
+  const pending = state.queue.filter(i => i.locationCode && !i.labelPrinted).length;
+  const printBtn = document.getElementById('printBatchBtn');
+  if (printBtn) {
+    if (pending > 0) {
+      printBtn.textContent = `🖨 Print ${pending} Pending Label${pending > 1 ? 's' : ''}`;
+      printBtn.style.color = 'var(--gold)';
+      printBtn.style.borderColor = 'var(--gold)';
+    } else {
+      printBtn.textContent = '🖨 All Labels Printed ✓';
+      printBtn.style.color = 'var(--mid)';
+      printBtn.style.borderColor = '#3a3830';
+    }
+  }
+  const thumbs = document.getElementById('queueThumbs');
+  const recent = state.queue.slice(-5).reverse();
+  thumbs.innerHTML = recent.map(item => `
+    <div class="queue-thumb" style="${!item.labelPrinted && item.locationCode ? 'border-color:var(--gold)' : ''}">
+      ${item.mode === 'vinyl' ? '🎵' : '👗'}
+    </div>`).join('');
+}
+
+function openQueue() {
+  if (state.queue.length === 0) {
+    alert('No items in queue yet — generate a listing and approve it to add to queue.');
+    return;
+  }
+  renderQueueList();
+  document.getElementById('queueOverlay').classList.add('visible');
+  requestAnimationFrame(() => { document.getElementById('queueOverlay').scrollTop = 0; });
+}
+
+function closeQueue() {
+  document.getElementById('queueOverlay').classList.remove('visible');
+}
+
+function closeQueueItem() {
+  document.getElementById('queueItemOverlay').classList.remove('visible');
+}
+
+function renderQueueList() {
+  const body = document.getElementById('queueBody');
+  if (!state.queue.length) {
+    body.innerHTML = '<div style="color:var(--mid);text-align:center;padding:40px">No items in queue</div>';
+    return;
+  }
+
+  body.innerHTML = state.queue.map((item, i) => {
+    const r = item.result;
+    const title = r.ebay_title || r.discogs_title || 'Untitled';
+    const price = r.suggested_price_gbp || r.discogs_price_gbp || '—';
+    const date = new Date(item.date).toLocaleDateString('en-GB', { day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' });
+    const statusColor = item.status === 'listed' ? '#5dd49a' : item.status === 'sold' ? '#c8973a' : 'var(--mid)';
+    const statusLabel = item.status === 'listed' ? '✓ Listed' : item.status === 'sold' ? '£ Sold' : 'Queued';
+
+    return `
+    <div onclick="openQueueItem(${i})" style="
+      background:#1a1916;border:1px solid #2a2820;border-radius:10px;
+      padding:14px 16px;margin-bottom:10px;cursor:pointer;
+      transition:border-color 0.2s;display:flex;gap:12px;align-items:flex-start"
+      onmouseover="this.style.borderColor='var(--gold)'"
+      onmouseout="this.style.borderColor='#2a2820'">
+      <div style="font-size:22px;flex-shrink:0">${item.mode === 'vinyl' ? '🎵' : '👗'}</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--cream);
+          line-height:1.3;margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+          ${escHtml(title)}
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--gold)">£${price}</span>
+          ${item.locationCode ? `<span style="font-family:'DM Mono',monospace;font-size:11px;color:#5dd49a;background:#1a3a2a;padding:2px 6px;border-radius:4px">${item.locationCode}</span>` : ''}
+          <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--mid)">${date}</span>
+          <span style="font-family:'DM Mono',monospace;font-size:9px;color:${statusColor}">${statusLabel}</span>
+        </div>
+      </div>
+      <div style="color:var(--mid);font-size:18px;flex-shrink:0">›</div>
+    </div>`;
+  }).reverse().join(''); // Most recent first
+}
+
+let currentQueueIndex = null;
+
+function openQueueItem(index) {
+  currentQueueIndex = index;
+  const item = state.queue[index];
+  const r = item.result;
+  const isVinyl = item.mode === 'vinyl';
+
+  // Header
+  document.getElementById('queueItemHeader').querySelector('h2').textContent =
+    isVinyl ? '🎵 ' + (r.detected_artist || 'Vinyl') : '👗 ' + (r.detected_brand || 'Item');
+  document.getElementById('queueItemSub').textContent =
+    new Date(item.date).toLocaleDateString('en-GB', { weekday:'short', day:'numeric', month:'short', hour:'2-digit', minute:'2-digit' });
+
+  // Mark as listed button
+  const markBtn = document.getElementById('markListedBtn');
+  if (item.status === 'listed') {
+    markBtn.textContent = '✓ Listed';
+    markBtn.style.background = '#2d6a4f';
+    markBtn.disabled = true;
+  } else {
+    markBtn.textContent = '✓ Mark as Listed';
+    markBtn.style.background = '';
+    markBtn.disabled = false;
+  }
+
+  const body = document.getElementById('queueItemBody');
+  let html = '';
+
+  // Location code
+  if (item.locationCode) {
+    html += `<div class="edit-field">
+      <div class="edit-field-label">Location</div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <div style="font-family:'DM Mono',monospace;font-size:24px;font-weight:500;
+          color:#5dd49a;background:#1a3a2a;display:inline-block;padding:8px 16px;
+          border-radius:8px;letter-spacing:0.05em">${item.locationCode}</div>
+        <button onclick="reprintLabel(${index})"
+          style="padding:8px 14px;background:transparent;border:1.5px solid #3a3830;
+          border-radius:8px;color:var(--mid);font-family:'DM Mono',monospace;
+          font-size:10px;cursor:pointer">
+          ${item.labelPrinted ? '✓ Printed — Reprint?' : '🖨 Print Label'}
+        </button>
+      </div>
+    </div>`;
+  }
+
+  // Title
+  html += `<div class="edit-field">
+    <div class="edit-field-label">eBay Title <em>${(r.ebay_title||'').length} chars</em></div>
+    <div style="background:#1a1916;border-radius:8px;padding:12px;border-left:3px solid var(--gold);
+      font-family:'Playfair Display',serif;font-size:15px;color:var(--cream);line-height:1.4">
+      ${escHtml(r.ebay_title || r.discogs_title || '')}
+    </div>
+  </div>`;
+
+  // Price + listing type
+  const price = r.suggested_price_gbp || r.discogs_price_gbp;
+  const listingType = item.listingType || 'fixed';
+  html += `<div class="edit-field">
+    <div class="edit-field-label">Price & Listing Type</div>
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="font-size:24px;font-weight:700;color:var(--gold);font-family:'DM Mono',monospace">£${price || '—'}</div>
+      <div style="display:flex;gap:6px">
+        <button onclick="setListingType(${currentQueueIndex},'fixed')" id="btnFixed"
+          style="padding:8px 14px;border-radius:8px;border:1.5px solid ${listingType==='fixed'?'var(--gold)':'#3a3830'};
+          background:${listingType==='fixed'?'rgba(200,151,58,0.15)':'transparent'};
+          color:${listingType==='fixed'?'var(--gold)':'var(--mid)'};
+          font-family:'DM Mono',monospace;font-size:11px;cursor:pointer">
+          🏷 Fixed Price
+        </button>
+        <button onclick="setListingType(${currentQueueIndex},'auction')" id="btnAuction"
+          style="padding:8px 14px;border-radius:8px;border:1.5px solid ${listingType==='auction'?'#5ba3e0':'#3a3830'};
+          background:${listingType==='auction'?'rgba(91,163,224,0.15)':'transparent'};
+          color:${listingType==='auction'?'#5ba3e0':'var(--mid)'};
+          font-family:'DM Mono',monospace;font-size:11px;cursor:pointer">
+          🔨 Auction
+        </button>
+      </div>
+      ${listingType==='auction' ? `<div style="font-size:11px;color:var(--mid);font-family:'DM Mono',monospace">7-day auction · start price £${Math.round(price*0.6)||1}</div>` : ''}
+    </div>
+  </div>`;
+
+  // Pricing alert
+  if (r.pricing_alert) {
+    html += `<div class="alert-box">⚠️ ${escHtml(r.pricing_alert)}</div>`;
+  }
+
+  // Description — full copyable text
+  html += `<div class="edit-field">
+    <div class="edit-field-label">Description <em style="color:var(--gold);cursor:pointer" onclick="copyListing()">tap to copy all ↗</em></div>
+    <div style="background:#1a1916;border-radius:8px;padding:12px;font-size:12px;
+      color:#b0a898;line-height:1.8;white-space:pre-wrap;font-family:'DM Sans',sans-serif">
+      ${escHtml(r.description || '')}
+    </div>
+  </div>`;
+
+  // Item specifics grid
+  if (r.item_specifics && Object.keys(r.item_specifics).length) {
+    html += `<div class="edit-field">
+      <div class="edit-field-label">Item Specifics</div>
+      <div class="result-meta-grid">
+        ${Object.entries(r.item_specifics).map(([k,v]) => `
+          <div class="result-meta-item">
+            <div class="result-meta-key">${escHtml(k)}</div>
+            <div class="result-meta-val">${escHtml(String(v))}</div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+  }
+
+  body.innerHTML = html;
+  document.getElementById('queueItemOverlay').classList.add('visible');
+  requestAnimationFrame(() => { document.getElementById('queueItemOverlay').scrollTop = 0; });
+}
+
+function copyListing() {
+  if (currentQueueIndex === null) return;
+  const r = state.queue[currentQueueIndex].result;
+  const text = `${r.ebay_title || ''}\n\n${r.description || ''}`;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = '✓ Copied!';
+    btn.style.color = '#5dd49a';
+    setTimeout(() => { btn.textContent = '📋 Copy'; btn.style.color = 'var(--gold)'; }, 2000);
+  }).catch(() => {
+    // Fallback for Safari
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const btn = document.getElementById('copyBtn');
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => { btn.textContent = '📋 Copy'; }, 2000);
+  });
+}
+
+function reprintLabel(index) {
+  const item = state.queue[index];
+  if (!item || !item.locationCode) return;
+  const r = item.result;
+  printLabel(
+    item.locationCode,
+    r.detected_brand || '',
+    r.detected_item_type || '',
+    r.item_specifics?.Size || r.item_specifics?.size || '',
+    String(r.suggested_price_gbp || r.discogs_price_gbp || ''),
+    new Date(item.date).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' })
+  );
+  // Mark as printed
+  item.labelPrinted = true;
+  localStorage.setItem('avaiva_queue', JSON.stringify(state.queue));
+  updateQueueStrip();
+  // Refresh detail view
+  openQueueItem(index);
+}
+
+function deleteQueueItem() {
+  if (currentQueueIndex === null) return;
+  const item = state.queue[currentQueueIndex];
+  const title = item.result.ebay_title || 'this item';
+  if (!confirm(`Delete "${title}" from queue?\n\nThis cannot be undone.`)) return;
+  state.queue.splice(currentQueueIndex, 1);
+  localStorage.setItem('avaiva_queue', JSON.stringify(state.queue));
+  updateQueueStrip();
+  closeQueueItem();
+  if (state.queue.length === 0) {
+    closeQueue();
+  } else {
+    renderQueueList();
+  }
+}
+
+function markAsListed() {
+  if (currentQueueIndex === null) return;
+  state.queue[currentQueueIndex].status = 'listed';
+  localStorage.setItem('avaiva_queue', JSON.stringify(state.queue));
+  const btn = document.getElementById('markListedBtn');
+  btn.textContent = '✓ Listed';
+  btn.style.background = '#2d6a4f';
+  btn.disabled = true;
+  updateQueueStrip();
+}
+
+function updateStats() {
+  document.getElementById('statToday').textContent = state.todayCount;
+  document.getElementById('statQueue').textContent = state.queue.length;
+  document.getElementById('statTotal').textContent = state.totalCount;
+}
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+function resetForm() {
+  state.photos = [];
+  state.audioBlob = null;
+  state.transcript = '';
+  state.voiceNotes = [];
+  renderPhotoGrid();
+  renderVoiceNotes();
+
+  const voiceBtn = document.getElementById('voiceBtn');
+  voiceBtn.className = 'voice-btn idle';
+  document.getElementById('voiceBtnIcon').textContent = '⏺';
+  document.getElementById('voiceBtnText').textContent = 'Tap to Record';
+  document.getElementById('voiceTranscript').className = 'voice-transcript';
+  document.getElementById('voiceNoteCount').textContent = '';
+  const doneBtn = document.getElementById('voiceDoneBtn');
+  doneBtn.style.display = 'none';
+  doneBtn.style.background = '#2d6a4f';
+  doneBtn.style.border = 'none';
+  doneBtn.disabled = false;
+  doneBtn.textContent = '✓ Finished Recording';
+
+  document.getElementById('cfPrice').value = '';
+  document.getElementById('cfSize').value = '';
+  document.getElementById('cfCondNote').value = '';
+  document.getElementById('cfCategory').selectedIndex = 0;
+  document.getElementById('cfCondition').selectedIndex = 0;
+
+  updateReadiness();
+}
+
+function showLoading(step) {
+  document.getElementById('loadingStep').textContent = step;
+  document.getElementById('loadingOverlay').classList.add('visible');
+}
+function setLoadingStep(step) {
+  document.getElementById('loadingStep').textContent = step;
+}
+function hideLoading() {
+  document.getElementById('loadingOverlay').classList.remove('visible');
+}
+function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function blobToBase64(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+function setListingType(index, type) {
+  state.queue[index].listingType = type;
+  localStorage.setItem('avaiva_queue', JSON.stringify(state.queue));
+  openQueueItem(index); // re-render to show updated toggle
+}
+
+
+function compressPhoto(base64, maxSize) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      let w = img.width, h = img.height;
+      if (w > maxSize || h > maxSize) {
+        if (w > h) { h = Math.round(h * maxSize / w); w = maxSize; }
+        else { w = Math.round(w * maxSize / h); h = maxSize; }
+      }
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      resolve(canvas.toDataURL('image/jpeg', 0.4));
+    };
+    img.onerror = reject;
+    img.src = base64;
+  });
+}
+
+async function sendToEbay() {
+  if (currentQueueIndex === null) return;
+  const item = state.queue[currentQueueIndex];
+  const r = item.result;
+
+  if (!state.ebayUserToken) {
+    const token = prompt('Paste your eBay User Token (from developer.ebay.com → User Tokens):');
+    if (!token || !token.trim()) return;
+    state.ebayUserToken = token.trim();
+    localStorage.setItem('avaiva_ebay_token', state.ebayUserToken);
+  }
+
+  const btn = document.getElementById('ebayDraftBtn');
+  btn.textContent = '⏳ Sending...';
+  btn.disabled = true;
+
+  try {
+    const price = r.suggested_price_gbp || r.discogs_price_gbp || 9.99;
+    const title = (r.ebay_title || '').substring(0, 80);
+    const description = `<![CDATA[<div style="font-family:Arial,sans-serif;max-width:700px">${(r.description || '').replace(/\n/g, '<br>')}</div>]]>`;
+
+    // eBay Trading API — AddItem call
+    const listingType = item.listingType || 'fixed';
+
+    // Collect item specifics
+    const specifics = {};
+    if (r.item_specifics) Object.assign(specifics, r.item_specifics);
+    if (r.specs) Object.assign(specifics, r.specs);
+    if (!specifics['Type'] && r.category) specifics['Type'] = r.category;
+    if (!specifics['Colour'] && r.colour) specifics['Colour'] = r.colour;
+    if (!specifics['Brand'] && r.brand) specifics['Brand'] = r.brand;
+    if (!specifics['Size'] && r.size) specifics['Size'] = r.size;
+
+    // Photos — use Drive URLs directly if available, otherwise send base64
+    const photos = (item.photos || []).filter(p => p && p.length > 10).slice(0, 8);
+
+    const response = await fetch(state.ebayScriptUrl, {
+      method: 'POST',
+      body: JSON.stringify({
+        userToken: state.ebayUserToken,
+        title: title,
+        description: r.description || '',
+        price: price,
+        categoryId: r.ebay_category_id || '50993',
+        isVintage: r.is_vintage || false,
+        listingType: listingType,
+        specifics: specifics,
+        photos: photos,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      item.ebayListingId = result.itemId;
+      item.status = 'listed';
+      localStorage.setItem('avaiva_queue', JSON.stringify(state.queue));
+      btn.textContent = '✓ Listed!';
+      btn.style.color = '#5dd49a';
+      btn.style.borderColor = '#2d6a4f';
+      alert(`✓ Listed on eBay!\n\nItem ID: ${result.itemId}\n\nhttps://www.ebay.co.uk/itm/${result.itemId}`);
+      updateQueueStrip();
+    } else {
+      throw new Error(result.error || 'eBay rejected the listing');
+    }
+
+  } catch(e) {
+    btn.textContent = '🏷 eBay';
+    btn.disabled = false;
+    btn.style.color = '#5ba3e0';
+
+    // CORS issue — eBay API can't be called directly from browser
+    if (e.message.includes('Failed to fetch') || e.message.includes('CORS')) {
+      showEbayManualFallback(item);
+    } else {
+      alert('eBay error: ' + e.message);
+    }
+  }
+}
+
+function showEbayManualFallback(item) {
+  const r = item.result;
+  // Build pre-filled eBay sell URL as fallback
+  const title = encodeURIComponent((r.ebay_title || '').substring(0, 80));
+  const price = r.suggested_price_gbp || r.discogs_price_gbp || '';
+  const catId = r.ebay_category_id || '15724';
+  const url = `https://www.ebay.co.uk/sell/listing?cat=${catId}&title=${title}&price=${price}`;
+
+  const copied = navigator.clipboard.writeText(r.ebay_title + '\n\n' + r.description)
+    .then(() => {}).catch(() => {});
+
+  alert(`eBay direct API blocked by browser security (CORS).\n\nListing text has been copied to clipboard.\n\nOpening eBay sell page — paste the description there.`);
+  window.open(url, '_blank');
+}
+
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function escAttr(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+</script>
+</body>
+</html>
