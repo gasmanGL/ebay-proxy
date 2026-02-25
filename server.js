@@ -1,6 +1,5 @@
 const express = require("express");
 const https = require("https");
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 const PROXY_KEY = process.env.PROXY_KEY;
@@ -17,6 +16,8 @@ app.post("/ebay", (req, res) => {
   req.on("data", chunk => chunks.push(chunk));
   req.on("end", () => {
     const body = Buffer.concat(chunks);
+
+    console.log("Body length:", body.length);
 
     const toForward = [
       "x-ebay-api-compatibility-level",
@@ -37,6 +38,8 @@ app.post("/ebay", (req, res) => {
     if (!fwdHeaders["x-ebay-api-compatibility-level"]) fwdHeaders["x-ebay-api-compatibility-level"] = "967";
     fwdHeaders["content-length"] = body.length;
 
+    console.log("Forwarding headers:", JSON.stringify(fwdHeaders));
+
     const options = {
       hostname: "api.ebay.com",
       path: "/ws/api.dll",
@@ -48,6 +51,8 @@ app.post("/ebay", (req, res) => {
       let data = "";
       ebayRes.on("data", chunk => data += chunk);
       ebayRes.on("end", () => {
+        console.log("eBay status:", ebayRes.statusCode);
+        console.log("eBay response (first 300):", data.slice(0, 300));
         res.status(ebayRes.statusCode)
           .set("Content-Type", ebayRes.headers["content-type"] || "text/xml")
           .send(data);
@@ -55,6 +60,7 @@ app.post("/ebay", (req, res) => {
     });
 
     ebayReq.on("error", (err) => {
+      console.log("eBay request error:", err.message);
       res.status(502).send("Upstream error: " + err.message);
     });
 
